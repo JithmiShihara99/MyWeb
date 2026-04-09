@@ -72,7 +72,9 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
                   <div key={tool.name}>
                     <div className="flex justify-between items-end mb-1.5">
                       <div className="flex items-center gap-2">
-                        <tool.icon size={14} className={isDarkMode ? 'text-zinc-500' : 'text-zinc-400'} />
+                        <div className={`p-1 rounded-md ${isDarkMode ? 'bg-zinc-800 text-zinc-300' : 'bg-zinc-100 text-zinc-700'}`}>
+                          <tool.icon size={12} />
+                        </div>
                         <span className={`text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'text-zinc-300' : 'text-zinc-700'}`}>{tool.name}</span>
                       </div>
                       <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded-md ${isDarkMode ? 'bg-zinc-800 text-zinc-400' : 'bg-zinc-100 text-zinc-500'}`}>{tool.desc}</span>

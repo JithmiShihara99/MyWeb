@@ -1,6 +1,5 @@
 import { 
   Palette, 
-  Code2,
   Layout,
   Database,
   TestTube,
@@ -12,22 +11,39 @@ import {
   Terminal,
   Globe,
   Music,
-  Code,
+  Code2,
+  Smartphone,
   Layers,
-  Cpu,
+  Monitor,
+  Zap,
   GitBranch,
   Send,
   Play,
   ClipboardCheck,
   FileEdit,
-  CheckCircle,
-  FileJson,
-  Braces,
-  Coffee,
-  Zap,
-  Monitor,
-  Smartphone
+  CheckCircle
 } from 'lucide-react';
+
+import { 
+  SiFigma, 
+  SiAdobexd, 
+  SiAdobeillustrator, 
+  SiAdobephotoshop,
+  SiReact,
+  SiJavascript,
+  SiHtml5,
+  SiCss3,
+  SiPython,
+  SiGo,
+  SiDotnet,
+  SiC,
+  SiMysql,
+  SiGit,
+  SiPostman,
+  SiSelenium
+} from 'react-icons/si';
+
+import { FaJava, FaCoffee } from 'react-icons/fa';
 
 export const personalInfo = {
   name: "JITHMI SHIHARA",
@@ -50,10 +66,10 @@ export const skills = [
     icon: Palette,
     color: "from-pink-500 to-rose-500",
     tools: [
-      { name: "Figma", level: 95, desc: "Design Systems", icon: Smartphone },
-      { name: "Adobe XD", level: 85, desc: "Prototyping", icon: Layers },
-      { name: "Illustrator", level: 80, desc: "Vector Art", icon: PenTool },
-      { name: "Photoshop", level: 75, desc: "Visuals", icon: Brush }
+      { name: "Figma", level: 95, desc: "Design Systems", icon: SiFigma },
+      { name: "Adobe XD", level: 85, desc: "Prototyping", icon: SiAdobexd },
+      { name: "Illustrator", level: 80, desc: "Vector Art", icon: SiAdobeillustrator },
+      { name: "Photoshop", level: 75, desc: "Visuals", icon: SiAdobephotoshop }
     ]
   },
   {
@@ -61,9 +77,9 @@ export const skills = [
     icon: Layout,
     color: "from-blue-500 to-cyan-500",
     tools: [
-      { name: "React", level: 90, desc: "Modern UI", icon: Code2 },
-      { name: "JavaScript", level: 85, desc: "ES6+ Logic", icon: FileJson },
-      { name: "HTML & CSS", level: 95, desc: "Responsive Design", icon: Layout }
+      { name: "React", level: 90, desc: "Modern UI", icon: SiReact },
+      { name: "JavaScript", level: 85, desc: "ES6+ Logic", icon: SiJavascript },
+      { name: "HTML & CSS", level: 95, desc: "Responsive Design", icon: SiHtml5 }
     ]
   },
   {
@@ -71,11 +87,11 @@ export const skills = [
     icon: Terminal,
     color: "from-emerald-500 to-teal-500",
     tools: [
-      { name: "Java", level: 80, desc: "OOP Systems", icon: Coffee },
-      { name: "Python", level: 75, desc: "Data & Scripts", icon: Braces },
-      { name: "Golang", level: 70, desc: "Backend", icon: Zap },
-      { name: "ASP.NET", level: 75, desc: "Web Apps", icon: Monitor },
-      { name: "C", level: 80, desc: "Core Logic", icon: Terminal }
+      { name: "Java", level: 80, desc: "OOP Systems", icon: FaJava },
+      { name: "Python", level: 75, desc: "Data & Scripts", icon: SiPython },
+      { name: "Golang", level: 70, desc: "Backend", icon: SiGo },
+      { name: "ASP.NET", level: 75, desc: "Web Apps", icon: SiDotnet },
+      { name: "C", level: 80, desc: "Core Logic", icon: SiC }
     ]
   },
   {
@@ -83,10 +99,10 @@ export const skills = [
     icon: Database,
     color: "from-violet-500 to-purple-500",
     tools: [
-      { name: "MySQL", level: 85, desc: "Data Mgmt", icon: Database },
-      { name: "Git", level: 90, desc: "Version Control", icon: GitBranch },
-      { name: "Postman", level: 85, desc: "API Testing", icon: Send },
-      { name: "Test Automation", level: 70, desc: "Scripts", icon: Play }
+      { name: "MySQL", level: 85, desc: "Data Mgmt", icon: SiMysql },
+      { name: "Git", level: 90, desc: "Version Control", icon: SiGit },
+      { name: "Postman", level: 85, desc: "API Testing", icon: SiPostman },
+      { name: "Test Automation", level: 70, desc: "Scripts", icon: SiSelenium }
     ]
   },
   {
