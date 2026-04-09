@@ -162,34 +162,34 @@ export const certifications = [
 
 export const dribbbleShots = [
   {
-    title: "Modern Dashboard UI",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
-    link: "https://dribbble.com/Jithmi_Shihara"
+    title: "CargoTon Website Design",
+    image: "https://cdn.dribbble.com/userupload/17053467/file/original-b27cc42ef8c3c7c992e252f923f99259.png",
+    link: "https://dribbble.com/shots/25019992-CargoTon-Website-Design"
   },
   {
-    title: "Mobile Banking App",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop",
-    link: "https://dribbble.com/Jithmi_Shihara"
+    title: "OceanOne Hotel Website",
+    image: "https://cdn.dribbble.com/userupload/17053398/file/original-d24e3e77333bcd0a4be2629898087d37.png",
+    link: "https://dribbble.com/shots/25019967-OceanOne-Hotel-Website"
   },
   {
-    title: "Smart Home Interface",
-    image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?q=80&w=800&auto=format&fit=crop",
-    link: "https://dribbble.com/Jithmi_Shihara"
+    title: "Janashakthi Life - Redesign",
+    image: "https://cdn.dribbble.com/userupload/17053134/file/original-13753d80c79e43a8cca61ff9d71609ab.png",
+    link: "https://dribbble.com/shots/25019883-Home-page-of-Janashakthi-Life-Redesign"
   },
   {
-    title: "E-commerce Redesign",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
-    link: "https://dribbble.com/Jithmi_Shihara"
+    title: "Barbershop Booking System",
+    image: "https://cdn.dribbble.com/userupload/16628222/file/original-ad965952c4ca50f5b9380765ad089591.png",
+    link: "https://dribbble.com/shots/24875826-Barbershop-Booking-System-UI-Design"
   },
   {
-    title: "Fitness Tracker UX",
-    image: "https://images.unsplash.com/photo-1510017803434-a899398421b3?q=80&w=800&auto=format&fit=crop",
-    link: "https://dribbble.com/Jithmi_Shihara"
+    title: "Content Creator Profile",
+    image: "https://cdn.dribbble.com/userupload/15916455/file/original-4839c2f653561e485bb2a09caf781ac5.png",
+    link: "https://dribbble.com/shots/24630674-Content-Creator-Profile-Page"
   },
   {
-    title: "Minimalist Portfolio Concept",
-    image: "https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=800&auto=format&fit=crop",
-    link: "https://dribbble.com/Jithmi_Shihara"
+    title: "Character Design",
+    image: "https://cdn.dribbble.com/userupload/12844396/file/original-07589b274ac8449540dba14df3c61e8b.png",
+    link: "https://dribbble.com/shots/23570928-Character-Design"
   }
 ];
 
