@@ -4,6 +4,7 @@ import { Moon, Sun, Menu, X, Mail, ArrowUp } from 'lucide-react';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import DribbbleGallery from './components/DribbbleGallery';
 import Experience from './components/Experience';
 import Cursor from './components/Cursor';
 import Preloader from './components/Preloader';
@@ -58,7 +59,8 @@ const App = () => {
   const navLinks = [
     { name: 'Home', href: '#' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'Work', href: '#projects' },
+    { name: 'Design', href: '#design' },
     { name: 'Experience', href: '#experience' },
   ];
   return (
@@ -158,6 +160,7 @@ const App = () => {
         <Hero isDarkMode={isDarkMode} currentTime={currentTime} />
         <Skills isDarkMode={isDarkMode} />
         <Projects isDarkMode={isDarkMode} />
+        <DribbbleGallery isDarkMode={isDarkMode} />
         <Experience isDarkMode={isDarkMode} />
 
         {/* Referees Section */}

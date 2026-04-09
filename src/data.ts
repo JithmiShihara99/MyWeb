@@ -160,6 +160,39 @@ export const certifications = [
   "INTECS - Faculty of Information Technology, University of Moratuwa"
 ];
 
+export const dribbbleShots = [
+  {
+    title: "Modern Dashboard UI",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+    link: "https://dribbble.com/Jithmi_Shihara"
+  },
+  {
+    title: "Mobile Banking App",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop",
+    link: "https://dribbble.com/Jithmi_Shihara"
+  },
+  {
+    title: "Smart Home Interface",
+    image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?q=80&w=800&auto=format&fit=crop",
+    link: "https://dribbble.com/Jithmi_Shihara"
+  },
+  {
+    title: "E-commerce Redesign",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+    link: "https://dribbble.com/Jithmi_Shihara"
+  },
+  {
+    title: "Fitness Tracker UX",
+    image: "https://images.unsplash.com/photo-1510017803434-a899398421b3?q=80&w=800&auto=format&fit=crop",
+    link: "https://dribbble.com/Jithmi_Shihara"
+  },
+  {
+    title: "Minimalist Portfolio Concept",
+    image: "https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=800&auto=format&fit=crop",
+    link: "https://dribbble.com/Jithmi_Shihara"
+  }
+];
+
 export const referees = [
   {
     name: "Sagara Sumathipala, Ph.D.",
