@@ -98,9 +98,13 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode, currentTime }) => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
-          className="relative hidden lg:block"
+          className="relative mt-12 lg:mt-0 w-full max-w-[400px] lg:max-w-none mx-auto lg:mx-0"
         >
-          <div className="relative z-10 w-full aspect-[4/5] rounded-3xl overflow-hidden grayscale contrast-125 hover:grayscale-0 transition-all duration-700 border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 shadow-2xl">
+          <div className={`relative z-10 w-full aspect-[4/5] rounded-3xl overflow-hidden transition-all duration-700 border shadow-2xl ${
+            isDarkMode 
+              ? 'grayscale contrast-125 hover:grayscale-0 border-zinc-800 bg-zinc-900' 
+              : 'border-zinc-200 bg-zinc-100'
+          }`}>
             <img 
               src="/images/jithmi.jpg" 
               alt={personalInfo.name}

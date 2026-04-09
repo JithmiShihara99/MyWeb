@@ -67,7 +67,7 @@ const App = () => {
             animate={{ opacity: 1, x: 0 }}
             className="text-xl font-black tracking-tighter"
           >
-            JS<span className="text-indigo-500">.DESIGN</span>
+            Jithmi<span className="text-indigo-500">Shihara</span>
           </motion.div>
 
           {/* Desktop Nav */}
@@ -189,10 +189,10 @@ const App = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className={`p-16 rounded-[3rem] text-white relative overflow-hidden group transition-all duration-500 ${
+              className={`p-16 rounded-[3rem] text-white relative overflow-hidden group transition-all duration-500 animate-fluid shadow-2xl ${
                 isDarkMode 
-                  ? 'bg-[linear-gradient(135deg,#4f46e5_50%,#3730a3_50%)] shadow-2xl' 
-                  : 'bg-[linear-gradient(135deg,#4338ca_50%,#312e81_50%)] shadow-2xl'
+                  ? 'bg-[linear-gradient(135deg,#4f46e5,#3730a3,#6366f1,#4338ca)]' 
+                  : 'bg-[linear-gradient(135deg,#4338ca,#312e81,#4f46e5,#1e1b4b)]'
               }`}
             >
               <div className="relative z-10">
