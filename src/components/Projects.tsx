@@ -31,7 +31,12 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
+              whileHover={{ 
+                y: -10,
+                rotateX: 2,
+                rotateY: -2,
+                scale: 1.02
+              }}
               className={`p-8 rounded-[2.5rem] border transition-all flex flex-col group relative overflow-hidden ${
                 isDarkMode 
                   ? 'bg-zinc-900/40 border-zinc-800/50 hover:border-indigo-500/30' 
