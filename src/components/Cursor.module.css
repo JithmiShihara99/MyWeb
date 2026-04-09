@@ -1,0 +1,28 @@
+.cursor {
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  position: fixed;
+  top: -16px;
+  left: -16px;
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.3s, height 0.3s, background 0.3s, opacity 0.3s;
+  mix-blend-mode: difference;
+}
+
+.hovered {
+  width: 64px;
+  height: 64px;
+  background: var(--accent);
+  border-color: var(--accent);
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .cursor {
+    display: none;
+  }
+}
