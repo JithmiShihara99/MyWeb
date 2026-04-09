@@ -159,3 +159,18 @@ export const certifications = [
   "Hack Moral 4.0 - Mini Hackathon Competition (2022)",
   "INTECS - Faculty of Information Technology, University of Moratuwa"
 ];
+
+export const referees = [
+  {
+    name: "Sagara Sumathipala, Ph.D.",
+    role: "Senior Lecturer, Dept. of Computational Mathematics",
+    org: "University of Moratuwa",
+    contact: "sagaras@uom.lk"
+  },
+  {
+    name: "Commander K.H. Nadeera",
+    role: "Kulapathi, Chief Coordinator - IT & GIS Wing",
+    org: "Centre for Defence Research and Development",
+    contact: "nadeerakulapathi@gmail.com"
+  }
+];

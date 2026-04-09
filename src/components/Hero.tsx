@@ -4,9 +4,10 @@ import { personalInfo } from '../data';
 
 interface HeroProps {
   isDarkMode: boolean;
+  currentTime: string;
 }
 
-const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
+const Hero: React.FC<HeroProps> = ({ isDarkMode, currentTime }) => {
   return (
     <section className="min-h-screen flex items-center relative overflow-hidden pt-20 px-6 lg:px-20">
       {/* Background decoration */}
@@ -19,18 +20,33 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode }) => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-medium mb-6"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-            </span>
-            Available for New Opportunities
-          </motion.div>
+          <div className="flex flex-wrap items-center gap-3 mb-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-sm font-medium"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+              </span>
+              Available for New Opportunities
+            </motion.div>
+
+            {currentTime && (
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border text-sm font-medium transition-colors ${
+                  isDarkMode ? 'bg-zinc-900 border-zinc-800 text-zinc-400' : 'bg-zinc-100 border-zinc-200 text-zinc-600'
+                }`}
+              >
+                Colombo, SL • {currentTime}
+              </motion.div>
+            )}
+          </div>
           
           <h1 className={`text-5xl lg:text-7xl font-extrabold leading-tight mb-6 bg-clip-text text-transparent ${isDarkMode ? 'bg-gradient-to-r from-white via-zinc-200 to-zinc-500' : 'bg-gradient-to-r from-zinc-950 via-zinc-800 to-zinc-600'}`}>
             Crafting Digital <br /> 

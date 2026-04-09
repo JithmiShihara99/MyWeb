@@ -6,12 +6,29 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Cursor from './components/Cursor';
-import { personalInfo } from './data';
+import { personalInfo, referees } from './data';
+import { Analytics } from '@vercel/analytics/react';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [currentTime, setCurrentTime] = useState("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      const time = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Asia/Colombo',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      }).format(new Date());
+      setCurrentTime(time);
+    };
+    updateTime();
+    const timer = setInterval(updateTime, 60000);
+    return () => clearInterval(timer);
+  }, []);
 
   // Set dark mode by default on the html element
   useEffect(() => {
@@ -38,6 +55,7 @@ const App = () => {
   ];
   return (
     <div className={`min-h-screen transition-colors duration-500 ${isDarkMode ? 'bg-zinc-950 text-zinc-100' : 'bg-zinc-50 text-zinc-900'}`}>
+      <Analytics />
       <Cursor />
       
       {/* Navigation */}
@@ -115,10 +133,54 @@ const App = () => {
       </AnimatePresence>
 
       <main>
-        <Hero isDarkMode={isDarkMode} />
+        <Hero isDarkMode={isDarkMode} currentTime={currentTime} />
         <Skills isDarkMode={isDarkMode} />
         <Projects isDarkMode={isDarkMode} />
         <Experience isDarkMode={isDarkMode} />
+
+        {/* Referees Section */}
+        <section id="referees" className={`py-24 px-6 lg:px-20 transition-colors ${isDarkMode ? 'bg-zinc-950' : 'bg-white'}`}>
+          <div className="container mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-16 text-center"
+            >
+              <h2 className={`text-4xl lg:text-5xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Professional Endorsements</h2>
+              <p className={`max-w-2xl mx-auto text-lg ${isDarkMode ? 'text-zinc-500' : 'text-zinc-600'}`}>
+                Trusted by industry leaders and academic experts.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {referees.map((ref, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className={`p-10 rounded-[2.5rem] border transition-all ${
+                    isDarkMode ? 'bg-zinc-900 border-zinc-800' : 'bg-zinc-50 border-zinc-200 shadow-sm'
+                  }`}
+                >
+                  <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>{ref.name}</h3>
+                  <p className="text-indigo-500 font-bold text-sm uppercase tracking-wider mb-4">{ref.role}</p>
+                  <p className={`text-sm mb-6 ${isDarkMode ? 'text-zinc-500' : 'text-zinc-600'}`}>{ref.org}</p>
+                  <a 
+                    href={`mailto:${ref.contact}`}
+                    className={`inline-flex items-center gap-2 text-sm font-bold transition-colors ${
+                      isDarkMode ? 'text-zinc-300 hover:text-white' : 'text-zinc-700 hover:text-zinc-950'
+                    }`}
+                  >
+                    <Mail size={16} /> {ref.contact}
+                  </a>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Contact CTA */}
         <section id="contact" className="py-24 px-6 lg:px-20 text-center">
