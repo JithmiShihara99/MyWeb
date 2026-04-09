@@ -11,28 +11,19 @@ import {
   Terminal,
   Globe,
   Music,
-  Code2,
-  Smartphone,
-  Layers,
-  Monitor,
-  Zap,
-  GitBranch,
-  Send,
-  Play,
   ClipboardCheck,
   FileEdit,
-  CheckCircle
+  CheckCircle,
+  Layers,
+  Shapes,
+  Image as ImageIcon
 } from 'lucide-react';
 
 import { 
   SiFigma, 
-  SiAdobexd, 
-  SiAdobeillustrator, 
-  SiAdobephotoshop,
   SiReact,
   SiJavascript,
-  SiHtml5,
-  SiCss3,
+  SiCss,
   SiPython,
   SiGo,
   SiDotnet,
@@ -43,7 +34,7 @@ import {
   SiSelenium
 } from 'react-icons/si';
 
-import { FaJava, FaCoffee } from 'react-icons/fa';
+import { FaJava } from 'react-icons/fa';
 
 export const personalInfo = {
   name: "JITHMI SHIHARA",
@@ -67,9 +58,9 @@ export const skills = [
     color: "from-pink-500 to-rose-500",
     tools: [
       { name: "Figma", level: 95, desc: "Design Systems", icon: SiFigma },
-      { name: "Adobe XD", level: 85, desc: "Prototyping", icon: SiAdobexd },
-      { name: "Illustrator", level: 80, desc: "Vector Art", icon: SiAdobeillustrator },
-      { name: "Photoshop", level: 75, desc: "Visuals", icon: SiAdobephotoshop }
+      { name: "Adobe XD", level: 85, desc: "Prototyping", icon: Layers },
+      { name: "Illustrator", level: 80, desc: "Vector Art", icon: Shapes },
+      { name: "Photoshop", level: 75, desc: "Visuals", icon: ImageIcon }
     ]
   },
   {
@@ -79,7 +70,7 @@ export const skills = [
     tools: [
       { name: "React", level: 90, desc: "Modern UI", icon: SiReact },
       { name: "JavaScript", level: 85, desc: "ES6+ Logic", icon: SiJavascript },
-      { name: "HTML & CSS", level: 95, desc: "Responsive Design", icon: SiHtml5 }
+      { name: "HTML & CSS", level: 95, desc: "Responsive Design", icon: SiCss }
     ]
   },
   {

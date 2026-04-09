@@ -105,9 +105,9 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             className="flex gap-12 whitespace-nowrap w-max px-12"
           >
-            {[...skills.flatMap(s => s.items), ...skills.flatMap(s => s.items)].map((item, idx) => (
+            {[...skills.flatMap(s => s.tools.map(t => t.name)), ...skills.flatMap(s => s.tools.map(t => t.name))].map((name, idx) => (
               <span key={idx} className={`text-4xl lg:text-6xl font-black uppercase tracking-tighter opacity-10 transition-opacity hover:opacity-100 cursor-default ${isDarkMode ? 'text-white' : 'text-zinc-950'}`}>
-                {item}
+                {name}
               </span>
             ))}
           </motion.div>
