@@ -36,17 +36,19 @@ const DribbbleGallery: React.FC<DribbbleGalleryProps> = ({ isDarkMode }) => {
               whileHover={{ y: -10 }}
               className="group relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm"
             >
+              <div className="absolute inset-0 bg-zinc-900/10 dark:bg-zinc-100/5 animate-pulse -z-10" />
               <img 
                 src={shot.image} 
                 alt={shot.title} 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 backdrop-blur-[2px]">
                 <h3 className="text-white text-xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                   {shot.title}
                 </h3>
                 <div className="flex items-center gap-2 text-indigo-400 font-bold text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
-                  View Shot <ExternalLink size={14} />
+                  View Case Study <ExternalLink size={14} />
                 </div>
               </div>
             </motion.a>

@@ -81,7 +81,25 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
           ))}
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        {/* Tech Marquee */}
+        <div className="mt-20 overflow-hidden relative">
+          <div className={`absolute inset-y-0 left-0 w-32 z-10 bg-gradient-to-r pointer-events-none ${isDarkMode ? 'from-zinc-950' : 'from-white'}`} />
+          <div className={`absolute inset-y-0 right-0 w-32 z-10 bg-gradient-to-l pointer-events-none ${isDarkMode ? 'from-zinc-950' : 'from-white'}`} />
+          
+          <motion.div 
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="flex gap-12 whitespace-nowrap w-max px-12"
+          >
+            {[...skills.flatMap(s => s.items), ...skills.flatMap(s => s.items)].map((item, idx) => (
+              <span key={idx} className={`text-4xl lg:text-6xl font-black uppercase tracking-tighter opacity-10 transition-opacity hover:opacity-100 cursor-default ${isDarkMode ? 'text-white' : 'text-zinc-950'}`}>
+                {item}
+              </span>
+            ))}
+          </motion.div>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 mt-20">
           {/* Soft Skills */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}

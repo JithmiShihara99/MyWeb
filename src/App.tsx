@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
-import { Moon, Sun, Menu, X, Mail, ArrowUp } from 'lucide-react';
+import { Moon, Sun, Menu, X, Mail, ArrowUp, Copy, Check } from 'lucide-react';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
@@ -17,6 +17,13 @@ const App = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [currentTime, setCurrentTime] = useState("");
   const [loading, setLoading] = useState(true);
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText(personalInfo.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -63,6 +70,7 @@ const App = () => {
     { name: 'Design', href: '#design' },
     { name: 'Experience', href: '#experience' },
   ];
+
   return (
     <div className={`min-h-screen transition-colors duration-500 ${isDarkMode ? 'bg-zinc-950 text-zinc-100' : 'bg-zinc-50 text-zinc-900'}`}>
       <AnimatePresence>
@@ -72,7 +80,6 @@ const App = () => {
       <Cursor />
       
       {/* Navigation */}
-
       <nav className={`fixed top-0 w-full z-50 border-b transition-colors duration-500 ${isDarkMode ? 'border-white/5 bg-zinc-950/20' : 'border-black/5 bg-white/20'} backdrop-blur-xl px-6 lg:px-20 py-4`}>
         <div className="container mx-auto flex justify-between items-center">
           <motion.div 
@@ -80,7 +87,7 @@ const App = () => {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-4"
           >
-            <div className="text-xl font-black tracking-tighter">
+            <div className="text-xl font-black tracking-tighter text-zinc-900 dark:text-white">
               Jithmi<span className="text-indigo-500">Shihara</span>
             </div>
             <div className={`hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full border text-[10px] font-bold uppercase tracking-wider transition-colors ${
@@ -225,12 +232,21 @@ const App = () => {
                 <p className={`text-indigo-100 text-xl mb-12 max-w-2xl mx-auto ${isDarkMode ? 'opacity-90' : 'opacity-100'}`}>
                   I'm always open to new projects, collaborations, and opportunities to push digital boundaries.
                 </p>
-                <a 
-                  href={`mailto:${personalInfo.email}`}
-                  className={`inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-bold text-lg transition-all ${isDarkMode ? 'bg-white text-indigo-600 hover:bg-zinc-100' : 'bg-zinc-950 text-white hover:bg-zinc-800 shadow-lg'}`}
-                >
-                  <Mail className="w-6 h-6" /> Get In Touch
-                </a>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <a 
+                    href={`mailto:${personalInfo.email}`}
+                    className={`inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-bold text-lg transition-all ${isDarkMode ? 'bg-white text-indigo-600 hover:bg-zinc-100' : 'bg-zinc-950 text-white hover:bg-zinc-800 shadow-lg'}`}
+                  >
+                    <Mail className="w-6 h-6" /> Get In Touch
+                  </a>
+                  <button 
+                    onClick={copyEmail}
+                    className={`inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-bold text-lg border transition-all ${isDarkMode ? 'border-white/20 bg-white/5 hover:bg-white/10' : 'border-white/20 bg-white/10 hover:bg-white/20 text-white'}`}
+                  >
+                    {copied ? <Check className="w-6 h-6 text-emerald-400" /> : <Copy className="w-6 h-6" />}
+                    {copied ? 'Copied!' : 'Copy Email'}
+                  </button>
+                </div>
               </div>
               
               {/* Decorative elements */}
@@ -258,7 +274,7 @@ const App = () => {
 
       <footer className={`py-12 border-t transition-colors duration-500 ${isDarkMode ? 'border-white/5 text-zinc-500' : 'border-black/5 text-zinc-600'} px-6 lg:px-20`}>
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-sm">
+          <div className="text-sm font-medium">
             © {new Date().getFullYear()} {personalInfo.name}. Developed with React & Tailwind.
           </div>
           <div className="flex gap-8">
