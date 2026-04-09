@@ -125,11 +125,12 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
               <span className="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-sm font-black transition-colors">SS</span>
               Soft Skills
             </h3>
-            <div className="flex flex-wrap gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {softSkills.map((skill) => (
-                <span key={skill} className={`px-5 py-2 rounded-xl text-sm font-medium border transition-colors ${isDarkMode ? 'bg-zinc-800 text-zinc-300 border-zinc-700/50' : 'bg-white text-zinc-700 border-zinc-200 shadow-sm'}`}>
-                  {skill}
-                </span>
+                <div key={skill.name} className={`flex items-center gap-3 p-3 rounded-xl border transition-all group ${isDarkMode ? 'bg-zinc-800/50 border-zinc-700/30 hover:border-indigo-500/30' : 'bg-white border-zinc-200 shadow-sm hover:border-indigo-500/30'}`}>
+                  <skill.icon className={`w-5 h-5 transition-transform group-hover:scale-110 ${isDarkMode ? 'text-indigo-400' : 'text-indigo-600'}`} />
+                  <span className={`transition-colors font-medium text-sm ${isDarkMode ? 'text-zinc-400 group-hover:text-zinc-200' : 'text-zinc-600 group-hover:text-indigo-600'}`}>{skill.name}</span>
+                </div>
               ))}
             </div>
           </motion.div>

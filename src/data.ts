@@ -16,11 +16,18 @@ import {
   CheckCircle,
   Layers,
   Shapes,
-  Image as ImageIcon
+  Image as ImageIcon,
+  Users,
+  Lightbulb,
+  MessageSquare,
+  Handshake,
+  Briefcase,
+  Award
 } from 'lucide-react';
 
 import { 
   SiFigma, 
+  SiAdobecreativecloud as SiAdobe,
   SiReact,
   SiJavascript,
   SiCss,
@@ -58,9 +65,9 @@ export const skills = [
     color: "from-pink-500 to-rose-500",
     tools: [
       { name: "Figma", level: 95, desc: "Design Systems", icon: SiFigma },
-      { name: "Adobe XD", level: 85, desc: "Prototyping", icon: Layers },
-      { name: "Illustrator", level: 80, desc: "Vector Art", icon: Shapes },
-      { name: "Photoshop", level: 75, desc: "Visuals", icon: ImageIcon }
+      { name: "Adobe XD", level: 85, desc: "Prototyping", icon: SiAdobe },
+      { name: "Illustrator", level: 80, desc: "Vector Art", icon: SiAdobe },
+      { name: "Photoshop", level: 75, desc: "Visuals", icon: SiAdobe }
     ]
   },
   {
@@ -109,8 +116,12 @@ export const skills = [
 ];
 
 export const softSkills = [
-  "Management Skills", "Creativity", "Interpersonal Skills", 
-  "Leadership Skills", "Communication Skills", "Team Work"
+  { name: "Management Skills", icon: Briefcase },
+  { name: "Creativity", icon: Lightbulb },
+  { name: "Interpersonal Skills", icon: Users },
+  { name: "Leadership Skills", icon: Award },
+  { name: "Communication Skills", icon: MessageSquare },
+  { name: "Team Work", icon: Handshake }
 ];
 
 export const interests = [
