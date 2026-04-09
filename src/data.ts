@@ -11,7 +11,22 @@ import {
   PenTool,
   Terminal,
   Globe,
-  Music
+  Music,
+  Code,
+  Layers,
+  Cpu,
+  GitBranch,
+  Send,
+  Play,
+  ClipboardCheck,
+  FileEdit,
+  CheckCircle,
+  FileJson,
+  Braces,
+  Coffee,
+  Zap,
+  Monitor,
+  Smartphone
 } from 'lucide-react';
 
 export const personalInfo = {
@@ -35,36 +50,54 @@ export const skills = [
     icon: Palette,
     color: "from-pink-500 to-rose-500",
     tools: [
-      { name: "Figma", level: 95, desc: "Design Systems & Prototyping" },
-      { name: "Adobe XD", level: 85, desc: "Interactive Wireframing" },
-      { name: "Illustrator", level: 80, desc: "Vector & Icon Design" },
-      { name: "Photoshop", level: 75, desc: "Visual Manipulation" }
-    ],
-    items: ["Figma", "Adobe XD", "Adobe Illustrator", "Adobe Photoshop"]
+      { name: "Figma", level: 95, desc: "Design Systems", icon: Smartphone },
+      { name: "Adobe XD", level: 85, desc: "Prototyping", icon: Layers },
+      { name: "Illustrator", level: 80, desc: "Vector Art", icon: PenTool },
+      { name: "Photoshop", level: 75, desc: "Visuals", icon: Brush }
+    ]
   },
   {
     category: "Web Development",
     icon: Layout,
-    items: ["HTML & CSS", "React", "JavaScript"],
-    color: "from-blue-500 to-cyan-500"
+    color: "from-blue-500 to-cyan-500",
+    tools: [
+      { name: "React", level: 90, desc: "Modern UI", icon: Code2 },
+      { name: "JavaScript", level: 85, desc: "ES6+ Logic", icon: FileJson },
+      { name: "HTML & CSS", level: 95, desc: "Responsive Design", icon: Layout }
+    ]
   },
   {
     category: "Programming",
-    icon: Code2,
-    items: ["Java", "C", "Python", "Golang", "ASP.NET"],
-    color: "from-emerald-500 to-teal-500"
+    icon: Terminal,
+    color: "from-emerald-500 to-teal-500",
+    tools: [
+      { name: "Java", level: 80, desc: "OOP Systems", icon: Coffee },
+      { name: "Python", level: 75, desc: "Data & Scripts", icon: Braces },
+      { name: "Golang", level: 70, desc: "Backend", icon: Zap },
+      { name: "ASP.NET", level: 75, desc: "Web Apps", icon: Monitor },
+      { name: "C", level: 80, desc: "Core Logic", icon: Terminal }
+    ]
   },
   {
     category: "Databases & Tools",
     icon: Database,
-    items: ["MySQL", "Git", "Postman", "Test Automation"],
-    color: "from-violet-500 to-purple-500"
+    color: "from-violet-500 to-purple-500",
+    tools: [
+      { name: "MySQL", level: 85, desc: "Data Mgmt", icon: Database },
+      { name: "Git", level: 90, desc: "Version Control", icon: GitBranch },
+      { name: "Postman", level: 85, desc: "API Testing", icon: Send },
+      { name: "Test Automation", level: 70, desc: "Scripts", icon: Play }
+    ]
   },
   {
     category: "Quality Assurance",
     icon: TestTube,
-    items: ["Manual Testing", "Test Case Design", "Test Execution"],
-    color: "from-orange-500 to-amber-500"
+    color: "from-orange-500 to-amber-500",
+    tools: [
+      { name: "Manual Testing", level: 95, desc: "Execution", icon: ClipboardCheck },
+      { name: "Test Case Design", level: 90, desc: "Architecture", icon: FileEdit },
+      { name: "Test Execution", level: 95, desc: "Quality Control", icon: CheckCircle }
+    ]
   }
 ];
 
