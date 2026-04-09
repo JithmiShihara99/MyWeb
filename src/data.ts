@@ -31,6 +31,18 @@ export const personalInfo = {
 
 export const skills = [
   {
+    category: "UI / UX Design",
+    icon: Palette,
+    color: "from-pink-500 to-rose-500",
+    tools: [
+      { name: "Figma", level: 95, desc: "Design Systems & Prototyping" },
+      { name: "Adobe XD", level: 85, desc: "Interactive Wireframing" },
+      { name: "Illustrator", level: 80, desc: "Vector & Icon Design" },
+      { name: "Photoshop", level: 75, desc: "Visual Manipulation" }
+    ],
+    items: ["Figma", "Adobe XD", "Adobe Illustrator", "Adobe Photoshop"]
+  },
+  {
     category: "Web Development",
     icon: Layout,
     items: ["HTML & CSS", "React", "JavaScript"],
@@ -41,12 +53,6 @@ export const skills = [
     icon: Code2,
     items: ["Java", "C", "Python", "Golang", "ASP.NET"],
     color: "from-emerald-500 to-teal-500"
-  },
-  {
-    category: "UI / UX Design",
-    icon: Palette,
-    items: ["Figma", "Adobe XD", "Adobe Illustrator", "Adobe Photoshop"],
-    color: "from-pink-500 to-rose-500"
   },
   {
     category: "Databases & Tools",

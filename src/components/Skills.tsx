@@ -67,16 +67,38 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
               
               <h3 className={`text-xl font-bold mb-4 transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>{skill.category}</h3>
               
-              <div className="flex flex-wrap gap-2">
-                {skill.items.map((item) => (
-                  <span 
-                    key={item}
-                    className={`px-3 py-1 rounded-full text-sm border transition-colors ${isDarkMode ? 'bg-zinc-800/50 text-zinc-400 border-zinc-700/50 group-hover:text-indigo-300' : 'bg-zinc-100 text-zinc-600 border-zinc-200 group-hover:text-indigo-600'}`}
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
+              {skill.tools ? (
+                <div className="space-y-4">
+                  {skill.tools.map((tool) => (
+                    <div key={tool.name}>
+                      <div className="flex justify-between items-end mb-1.5">
+                        <span className={`text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'text-zinc-300' : 'text-zinc-700'}`}>{tool.name}</span>
+                        <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded-md ${isDarkMode ? 'bg-zinc-800 text-zinc-400' : 'bg-zinc-100 text-zinc-500'}`}>{tool.desc}</span>
+                      </div>
+                      <div className={`h-1 w-full rounded-full overflow-hidden ${isDarkMode ? 'bg-zinc-800' : 'bg-zinc-100'}`}>
+                        <motion.div 
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${tool.level}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1.5, ease: "easeOut", delay: index * 0.1 }}
+                          className={`h-full bg-gradient-to-r ${skill.color}`}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="flex flex-wrap gap-2">
+                  {skill.items.map((item) => (
+                    <span 
+                      key={item}
+                      className={`px-3 py-1 rounded-full text-sm border transition-colors ${isDarkMode ? 'bg-zinc-800/50 text-zinc-400 border-zinc-700/50 group-hover:text-indigo-300' : 'bg-zinc-100 text-zinc-600 border-zinc-200 group-hover:text-indigo-600'}`}
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
