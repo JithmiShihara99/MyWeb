@@ -127,7 +127,11 @@ const App = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className={`p-16 rounded-[3rem] text-white relative overflow-hidden group transition-all duration-500 ${isDarkMode ? 'bg-indigo-600' : 'bg-indigo-700 shadow-2xl'}`}
+              className={`p-16 rounded-[3rem] text-white relative overflow-hidden group transition-all duration-500 ${
+                isDarkMode 
+                  ? 'bg-[linear-gradient(135deg,#4f46e5_50%,#3730a3_50%)] shadow-2xl' 
+                  : 'bg-[linear-gradient(135deg,#4338ca_50%,#312e81_50%)] shadow-2xl'
+              }`}
             >
               <div className="relative z-10">
                 <h2 className="text-5xl font-black mb-6 tracking-tight">Let's build something <br /> remarkable together.</h2>
