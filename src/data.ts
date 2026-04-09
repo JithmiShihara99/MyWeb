@@ -27,7 +27,6 @@ import {
 
 import { 
   SiFigma, 
-  SiAdobecreativecloud as SiAdobe,
   SiReact,
   SiJavascript,
   SiCss,
@@ -65,9 +64,9 @@ export const skills = [
     color: "from-pink-500 to-rose-500",
     tools: [
       { name: "Figma", level: 95, desc: "Design Systems", icon: SiFigma },
-      { name: "Adobe XD", level: 85, desc: "Prototyping", icon: SiAdobe },
-      { name: "Illustrator", level: 80, desc: "Vector Art", icon: SiAdobe },
-      { name: "Photoshop", level: 75, desc: "Visuals", icon: SiAdobe }
+      { name: "Adobe XD", level: 85, desc: "Prototyping", icon: Layers },
+      { name: "Illustrator", level: 80, desc: "Vector Art", icon: Shapes },
+      { name: "Photoshop", level: 75, desc: "Visuals", icon: ImageIcon }
     ]
   },
   {
