@@ -23,6 +23,34 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+          {/* Impact Stats Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className={`p-8 rounded-3xl border transition-all flex flex-col justify-center ${
+              isDarkMode 
+                ? 'bg-indigo-600/10 border-indigo-500/20 text-white' 
+                : 'bg-indigo-50 border-indigo-100 text-indigo-900 shadow-sm'
+            }`}
+          >
+            <h3 className="text-sm font-bold uppercase tracking-widest mb-6 opacity-70">Impact Metrics</h3>
+            <div className="space-y-6">
+              <div>
+                <div className="text-4xl font-black mb-1">20+</div>
+                <div className="text-xs font-bold uppercase tracking-wider opacity-60">UI/UX Screens Designed</div>
+              </div>
+              <div>
+                <div className="text-4xl font-black mb-1">500+</div>
+                <div className="text-xs font-bold uppercase tracking-wider opacity-60">Hours of Engineering</div>
+              </div>
+              <div>
+                <div className="text-4xl font-black mb-1">06</div>
+                <div className="text-xs font-bold uppercase tracking-wider opacity-60">Months Defense Research</div>
+              </div>
+            </div>
+          </motion.div>
+
           {skills.map((skill, index) => (
             <motion.div
               key={skill.category}

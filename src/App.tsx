@@ -6,6 +6,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
 import Cursor from './components/Cursor';
+import Preloader from './components/Preloader';
 import { personalInfo, referees } from './data';
 import { Analytics } from '@vercel/analytics/react';
 
@@ -14,6 +15,13 @@ const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [currentTime, setCurrentTime] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    const timer = setTimeout(() => setLoading(false), 2800);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const updateTime = () => {
@@ -55,6 +63,9 @@ const App = () => {
   ];
   return (
     <div className={`min-h-screen transition-colors duration-500 ${isDarkMode ? 'bg-zinc-950 text-zinc-100' : 'bg-zinc-50 text-zinc-900'}`}>
+      <AnimatePresence>
+        {loading && <Preloader />}
+      </AnimatePresence>
       <Analytics />
       <Cursor />
       
