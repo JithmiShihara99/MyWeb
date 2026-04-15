@@ -28,6 +28,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
           </p>
         </motion.div>
 
+        {/* Re-organized Grid: Featured projects span columns, standard projects take 1 col */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => {
             const mode = projectModes[project.title] || 'design';
@@ -40,7 +41,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
                 transition={{ delay: index * 0.1 }}
                 className={`p-8 rounded-[2.5rem] glass-card transition-all flex flex-col group relative overflow-hidden ${
                   isDarkMode ? '' : 'shadow-sm'
-                } ${project.featured ? 'lg:col-span-2' : ''}`}
+                } ${project.featured ? 'lg:col-span-2' : 'lg:col-span-1'}`}
               >
                 <div className="flex justify-between items-start mb-8">
                   <span className={`px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest border transition-colors ${isDarkMode ? 'bg-zinc-800 text-indigo-400 border-zinc-700' : 'bg-zinc-100 text-indigo-600 border-zinc-200'}`}>
@@ -71,6 +72,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: mode === 'design' ? 10 : -10 }}
                     transition={{ duration: 0.2 }}
+                    className="flex-1 flex flex-col"
                   >
                     <h3 className={`text-3xl font-black mb-4 transition-colors ${mode === 'design' ? 'group-hover:text-indigo-500' : 'group-hover:text-emerald-500'} ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>
                       {project.title}
