@@ -34,7 +34,7 @@ const DribbbleGallery: React.FC<DribbbleGalleryProps> = ({ isDarkMode }) => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -10 }}
-              className="group relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm"
+              className={`group relative aspect-[4/3] rounded-[2rem] overflow-hidden border shadow-sm transition-colors ${isDarkMode ? 'border-zinc-800' : 'border-black/5 bg-white/40'}`}
             >
               <div className="absolute inset-0 bg-zinc-900/10 dark:bg-zinc-100/5 animate-pulse -z-10" />
               <img 

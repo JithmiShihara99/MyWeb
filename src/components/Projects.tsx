@@ -78,7 +78,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
                       {project.title}
                     </h3>
                     
-                    <p className={`leading-relaxed mb-8 transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-600'}`}>
+                    <p className={`leading-relaxed mb-8 transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-700'}`}>
                       {mode === 'design' 
                         ? `Focusing on user research, empathy mapping, and pixel-perfect prototyping for the ${project.title}.`
                         : project.description
@@ -88,7 +88,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
                     <div className="mt-auto">
                       <div className="flex flex-wrap gap-2 mb-8">
                           {(mode === 'design' ? ['Figma', 'Prototyping', 'UX Research'] : project.tech).map((t) => (
-                          <span key={t} className={`text-[10px] font-bold px-2 py-1 rounded-md border transition-colors ${isDarkMode ? 'text-zinc-500 bg-zinc-800/30 border-zinc-800/50' : 'text-zinc-500 bg-zinc-50 border-zinc-200'}`}>
+                          <span key={t} className={`text-[10px] font-bold px-2 py-1 rounded-md border transition-colors ${isDarkMode ? 'text-zinc-500 bg-zinc-800/30 border-zinc-800/50' : 'text-zinc-700 bg-zinc-100 border-zinc-200'}`}>
                               {t}
                           </span>
                           ))}

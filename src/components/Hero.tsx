@@ -86,7 +86,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode, currentTime }) => {
             Engineering.
           </h1>
           
-          <p className={`text-xl lg:text-2xl leading-relaxed mb-10 max-w-xl font-medium transition-colors mx-auto lg:mx-0 ${isDarkMode ? 'text-zinc-400' : 'text-zinc-600'}`}>
+          <p className={`text-xl lg:text-2xl leading-relaxed mb-10 max-w-xl font-medium transition-colors mx-auto lg:mx-0 ${isDarkMode ? 'text-zinc-400' : 'text-zinc-700'}`}>
             I'm <span className={`font-black underline decoration-indigo-500 underline-offset-4 ${isDarkMode ? 'text-white' : 'text-zinc-950'}`}>{personalInfo.name}</span>. 
             A {personalInfo.role} dedicated to building products that are as functional as they are beautiful.
           </p>
@@ -112,7 +112,7 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode, currentTime }) => {
               className={`px-10 py-5 bg-transparent rounded-2xl font-black uppercase tracking-widest text-sm glass-card flex items-center gap-3 ${
                 isDarkMode 
                   ? 'text-white hover:bg-white/5' 
-                  : 'text-zinc-900 hover:bg-black/5 shadow-sm'
+                  : 'text-zinc-900 hover:bg-black/5 shadow-sm border-black/10'
               }`}
             >
               <Download className="w-4 h-4" /> CV

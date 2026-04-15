@@ -24,14 +24,14 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
               <h2 className={`text-3xl lg:text-4xl font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Experience</h2>
             </div>
             
-            <div className={`space-y-8 relative before:absolute before:left-[1.85rem] before:top-2 before:bottom-2 before:w-[2px] transition-colors ${isDarkMode ? 'before:bg-zinc-800/50' : 'before:bg-zinc-200'}`}>
+            <div className={`space-y-8 relative before:absolute before:left-[1.85rem] before:top-2 before:bottom-2 before:w-[2px] transition-colors ${isDarkMode ? 'before:bg-zinc-800/50' : 'before:bg-zinc-300'}`}>
               {experiences.map((exp, index) => (
                 <div key={index} className="relative pl-16">
                   <div className={`absolute left-[1.4rem] top-2 w-4 h-4 rounded-full border-2 border-indigo-500 z-10 transition-colors ${isDarkMode ? 'bg-zinc-950' : 'bg-zinc-50'}`} />
                   <span className={`font-bold text-sm uppercase tracking-wider mb-2 block transition-colors ${isDarkMode ? 'text-indigo-400' : 'text-indigo-600'}`}>{exp.period}</span>
                   <h3 className={`text-2xl font-black mb-1 transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>{exp.role}</h3>
-                  <p className={`font-bold mb-4 transition-colors ${isDarkMode ? 'text-zinc-300' : 'text-zinc-700'}`}>{exp.company}</p>
-                  <p className={`leading-relaxed max-w-md whitespace-pre-line transition-colors ${isDarkMode ? 'text-zinc-500' : 'text-zinc-600'}`}>{exp.description}</p>
+                  <p className={`font-bold mb-4 transition-colors ${isDarkMode ? 'text-zinc-300' : 'text-zinc-800'}`}>{exp.company}</p>
+                  <p className={`leading-relaxed max-w-md whitespace-pre-line transition-colors ${isDarkMode ? 'text-zinc-500' : 'text-zinc-700'}`}>{exp.description}</p>
                 </div>
               ))}
             </div>
@@ -53,14 +53,14 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
                 <h2 className={`text-3xl lg:text-4xl font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Education</h2>
                 </div>
                 
-                <div className={`space-y-8 relative before:absolute before:left-[1.85rem] before:top-2 before:bottom-2 before:w-[2px] transition-colors ${isDarkMode ? 'before:bg-zinc-800/50' : 'before:bg-zinc-200'}`}>
+                <div className={`space-y-8 relative before:absolute before:left-[1.85rem] before:top-2 before:bottom-2 before:w-[2px] transition-colors ${isDarkMode ? 'before:bg-zinc-800/50' : 'before:bg-zinc-300'}`}>
                 {education.map((edu, index) => (
                     <div key={index} className="relative pl-16">
                     <div className={`absolute left-[1.4rem] top-2 w-4 h-4 rounded-full border-2 border-rose-500 z-10 transition-colors ${isDarkMode ? 'bg-zinc-950' : 'bg-zinc-50'}`} />
                     <span className={`font-bold text-sm uppercase tracking-wider mb-2 block transition-colors ${isDarkMode ? 'text-rose-400' : 'text-rose-600'}`}>{edu.period}</span>
                     <h3 className={`text-2xl font-black mb-1 transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>{edu.degree}</h3>
-                    <p className={`font-bold mb-4 transition-colors ${isDarkMode ? 'text-zinc-300' : 'text-zinc-700'}`}>{edu.school}</p>
-                    <p className={`leading-relaxed max-w-md whitespace-pre-line transition-colors ${isDarkMode ? 'text-zinc-500' : 'text-zinc-600'}`}>{edu.details}</p>
+                    <p className={`font-bold mb-4 transition-colors ${isDarkMode ? 'text-zinc-300' : 'text-zinc-800'}`}>{edu.school}</p>
+                    <p className={`leading-relaxed max-w-md whitespace-pre-line transition-colors ${isDarkMode ? 'text-zinc-500' : 'text-zinc-700'}`}>{edu.details}</p>
                     </div>
                 ))}
                 </div>
@@ -74,7 +74,7 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
                     </div>
                     <h3 className={`text-3xl font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Professional Qualifications</h3>
                 </div>
-                <div className={`space-y-8 relative before:absolute before:left-[1.85rem] before:top-2 before:bottom-2 before:w-[2px] transition-colors ${isDarkMode ? 'before:bg-zinc-800/50' : 'before:bg-zinc-200'}`}>
+                <div className={`space-y-8 relative before:absolute before:left-[1.85rem] before:top-2 before:bottom-2 before:w-[2px] transition-colors ${isDarkMode ? 'before:bg-zinc-800/50' : 'before:bg-zinc-300'}`}>
                     {professionalQualifications.map((qual, index) => (
                         <div key={index} className="relative pl-16">
                             <div className={`absolute left-[1.4rem] top-2 w-4 h-4 rounded-full border-2 border-indigo-500 z-10 transition-colors ${isDarkMode ? 'bg-zinc-950' : 'bg-zinc-50'}`} />
@@ -92,7 +92,7 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
                     </div>
                     <h3 className={`text-3xl font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Activities & Certifications</h3>
                 </div>
-                <div className={`space-y-8 relative before:absolute before:left-[1.85rem] before:top-2 before:bottom-2 before:w-[2px] transition-colors ${isDarkMode ? 'before:bg-zinc-800/50' : 'before:bg-zinc-200'}`}>
+                <div className={`space-y-8 relative before:absolute before:left-[1.85rem] before:top-2 before:bottom-2 before:w-[2px] transition-colors ${isDarkMode ? 'before:bg-zinc-800/50' : 'before:bg-zinc-300'}`}>
                     {certifications.map((cert, index) => (
                         <div key={index} className="relative pl-16">
                             <div className={`absolute left-[1.4rem] top-2 w-4 h-4 rounded-full border-2 border-rose-500 z-10 transition-colors ${isDarkMode ? 'bg-zinc-950' : 'bg-zinc-50'}`} />
