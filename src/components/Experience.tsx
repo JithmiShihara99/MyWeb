@@ -67,36 +67,36 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
             </div>
 
             {/* Professional Qualifications */}
-            <div className="pl-16">
-                <div className="flex items-center gap-3 mb-6">
-                    <div className={`p-2 rounded-xl border transition-colors ${isDarkMode ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400' : 'bg-indigo-50 border-indigo-100 text-indigo-600'}`}>
-                        <Award size={18} />
+            <div className="flex flex-col gap-8">
+                <div className="flex items-center gap-4">
+                    <div className={`p-3 rounded-2xl border transition-colors ${isDarkMode ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400' : 'bg-indigo-50 border-indigo-100 text-indigo-600'}`}>
+                        <Award size={24} />
                     </div>
-                    <h3 className={`text-xl font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Professional Qualifications</h3>
+                    <h3 className={`text-3xl font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Professional Qualifications</h3>
                 </div>
-                <div className="space-y-3">
+                <div className={`space-y-8 relative before:absolute before:left-[1.85rem] before:top-2 before:bottom-2 before:w-[2px] transition-colors ${isDarkMode ? 'before:bg-zinc-800/50' : 'before:bg-zinc-200'}`}>
                     {professionalQualifications.map((qual, index) => (
-                        <div key={index} className="flex gap-3">
-                            <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1.5 shrink-0" />
-                            <p className={`text-sm font-medium transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-600'}`}>{qual}</p>
+                        <div key={index} className="relative pl-16">
+                            <div className={`absolute left-[1.4rem] top-2 w-4 h-4 rounded-full border-2 border-indigo-500 z-10 transition-colors ${isDarkMode ? 'bg-zinc-950' : 'bg-zinc-50'}`} />
+                            <p className={`text-lg font-bold leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-300' : 'text-zinc-700'}`}>{qual}</p>
                         </div>
                     ))}
                 </div>
             </div>
 
             {/* Activities & Certifications */}
-            <div className="pl-16">
-                <div className="flex items-center gap-3 mb-6">
-                    <div className={`p-2 rounded-xl border transition-colors ${isDarkMode ? 'bg-rose-500/10 border-rose-500/20 text-rose-400' : 'bg-rose-50 border-rose-100 text-rose-600'}`}>
-                        <ShieldCheck size={18} />
+            <div className="flex flex-col gap-8">
+                <div className="flex items-center gap-4">
+                    <div className={`p-3 rounded-2xl border transition-colors ${isDarkMode ? 'bg-rose-500/10 border-rose-500/20 text-rose-400' : 'bg-rose-50 border-rose-100 text-rose-600'}`}>
+                        <ShieldCheck size={24} />
                     </div>
-                    <h3 className={`text-xl font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Activities & Certifications</h3>
+                    <h3 className={`text-3xl font-bold transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Activities & Certifications</h3>
                 </div>
-                <div className="space-y-3">
+                <div className={`space-y-8 relative before:absolute before:left-[1.85rem] before:top-2 before:bottom-2 before:w-[2px] transition-colors ${isDarkMode ? 'before:bg-zinc-800/50' : 'before:bg-zinc-200'}`}>
                     {certifications.map((cert, index) => (
-                        <div key={index} className="flex gap-3">
-                            <span className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-1.5 shrink-0" />
-                            <p className={`text-sm font-medium transition-colors ${isDarkMode ? 'text-zinc-400' : 'text-zinc-600'}`}>{cert}</p>
+                        <div key={index} className="relative pl-16">
+                            <div className={`absolute left-[1.4rem] top-2 w-4 h-4 rounded-full border-2 border-rose-500 z-10 transition-colors ${isDarkMode ? 'bg-zinc-950' : 'bg-zinc-50'}`} />
+                            <p className={`text-lg font-bold leading-relaxed transition-colors ${isDarkMode ? 'text-zinc-300' : 'text-zinc-700'}`}>{cert}</p>
                         </div>
                     ))}
                 </div>
