@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Download, MousePointer2, Sparkles } from 'lucide-react';
+import { Download, MousePointer2 } from 'lucide-react';
 import { personalInfo } from '../data';
 
 interface HeroProps {

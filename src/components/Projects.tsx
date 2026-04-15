@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Figma, ExternalLink, X } from 'lucide-react';
+import { ArrowUpRight, ExternalLink, X } from 'lucide-react';
+import { SiFigma } from 'react-icons/si';
 import { projects } from '../data';
 
 interface ProjectsProps {
@@ -123,7 +124,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
                             onClick={() => setSelectedFigma(project.figmaUrl || null)}
                             className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-rose-500 hover:text-rose-400 transition-colors"
                         >
-                            <Figma size={14} /> View Prototype
+                            <SiFigma size={14} /> View Prototype
                         </button>
                     )}
                 </div>
