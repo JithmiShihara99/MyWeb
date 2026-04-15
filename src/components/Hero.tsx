@@ -29,8 +29,8 @@ const Hero: React.FC<HeroProps> = ({ isDarkMode, currentTime }) => {
              whileHover={{ scale: 1.02 }}
              className={`relative z-10 w-full aspect-[4/5] rounded-[3rem] overflow-hidden transition-all duration-700 border glass-card shadow-2xl ${
                 isDarkMode 
-                ? 'grayscale contrast-125 hover:grayscale-0' 
-                : ''
+                ? 'border-white/10' 
+                : 'border-black/5'
             }`}
           >
             <img 
