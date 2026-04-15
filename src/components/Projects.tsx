@@ -39,9 +39,7 @@ const Projects: React.FC<ProjectsProps> = ({ isDarkMode }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`p-8 rounded-[2.5rem] glass-card transition-all flex flex-col group relative overflow-hidden ${
-                  isDarkMode ? '' : 'shadow-sm'
-                } ${project.featured ? 'lg:col-span-2' : 'lg:col-span-1'}`}
+                className={`p-8 rounded-[2.5rem] glass-card transition-all flex flex-col group relative overflow-hidden ${project.featured ? 'lg:col-span-2' : 'lg:col-span-1'}`}
               >
                 <div className="flex justify-between items-start mb-8">
                   <span className={`px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest border transition-colors ${isDarkMode ? 'bg-zinc-800 text-indigo-400 border-zinc-700' : 'bg-zinc-100 text-indigo-600 border-zinc-200'}`}>

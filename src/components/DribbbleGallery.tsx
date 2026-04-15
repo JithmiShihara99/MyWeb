@@ -8,7 +8,7 @@ interface DribbbleGalleryProps {
 
 const DribbbleGallery: React.FC<DribbbleGalleryProps> = ({ isDarkMode }) => {
   return (
-    <section id="design" className={`py-24 px-6 lg:px-20 transition-colors ${isDarkMode ? 'bg-zinc-950' : 'bg-white'}`}>
+    <section id="design" className={`py-24 px-6 lg:px-20 transition-colors ${isDarkMode ? 'bg-zinc-950' : 'bg-rose-50/30'}`}>
       <div className="container mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

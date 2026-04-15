@@ -25,7 +25,7 @@ const UXAudit: React.FC<UXAuditProps> = ({ isDarkMode }) => {
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
-          <div className={`p-1 rounded-[2.5rem] glass-card overflow-hidden transition-all duration-500 ${isDarkMode ? 'bg-zinc-900/40' : 'bg-white'}`}>
+          <div className={`p-1 rounded-[2.5rem] glass-card overflow-hidden transition-all duration-500 ${isDarkMode ? 'bg-zinc-900/40' : 'bg-indigo-50/20'}`}>
             <div className="flex flex-col md:flex-row">
               {/* Controls */}
               <div className={`p-10 md:w-1/3 border-b md:border-b-0 md:border-r border-white/5 flex flex-col justify-center gap-6 ${isDarkMode ? 'bg-zinc-900/50' : 'bg-zinc-50'}`}>

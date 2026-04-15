@@ -256,9 +256,7 @@ const App = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className={`p-10 rounded-[2.5rem] glass-card transition-all ${
-                    isDarkMode ? '' : 'shadow-md border-black/5 bg-white/60'
-                  }`}
+                  className="p-10 rounded-[2.5rem] glass-card transition-all"
                 >
                   <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>{ref.name}</h3>
                   <p className="text-indigo-500 font-bold text-sm uppercase tracking-wider mb-4">{ref.role}</p>

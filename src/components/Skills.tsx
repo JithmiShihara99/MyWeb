@@ -93,7 +93,7 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`p-8 rounded-[2.5rem] glass-card group flex flex-col`}
+              className="p-8 rounded-[2.5rem] glass-card group flex flex-col"
             >
               <div className="flex items-center gap-4 mb-8">
                 <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${skill.color} p-3 shadow-lg`}>
@@ -167,9 +167,7 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className={`p-8 rounded-3xl glass-card flex flex-col justify-between group ${
-              isDarkMode ? 'bg-emerald-600/5' : 'bg-emerald-50/30'
-            }`}
+            className="p-8 rounded-3xl glass-card flex flex-col justify-between group"
           >
             <div>
               <h3 className="text-[10px] font-black uppercase tracking-[0.2em] mb-6 text-emerald-500">Lighthouse Score</h3>

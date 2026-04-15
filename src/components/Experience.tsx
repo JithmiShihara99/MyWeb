@@ -8,7 +8,7 @@ interface ExperienceProps {
 
 const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
   return (
-    <section id="experience" className={`py-24 px-6 lg:px-20 transition-colors ${isDarkMode ? 'bg-zinc-950/50' : 'bg-zinc-50/50'}`}>
+    <section id="experience" className={`py-24 px-6 lg:px-20 transition-colors ${isDarkMode ? 'bg-zinc-950/50' : 'bg-indigo-50/40'}`}>
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-20 mb-24">
           {/* Experience */}
