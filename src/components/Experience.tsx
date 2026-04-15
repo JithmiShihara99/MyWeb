@@ -31,7 +31,7 @@ const Experience: React.FC<ExperienceProps> = ({ isDarkMode }) => {
                   <span className={`font-bold text-sm uppercase tracking-wider mb-2 block transition-colors ${isDarkMode ? 'text-indigo-400' : 'text-indigo-600'}`}>{exp.period}</span>
                   <h3 className={`text-2xl font-black mb-1 transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>{exp.role}</h3>
                   <p className={`font-bold mb-4 transition-colors ${isDarkMode ? 'text-zinc-300' : 'text-zinc-700'}`}>{exp.company}</p>
-                  <p className={`leading-relaxed max-w-md transition-colors ${isDarkMode ? 'text-zinc-500' : 'text-zinc-600'}`}>{exp.description}</p>
+                  <p className={`leading-relaxed max-w-md whitespace-pre-line transition-colors ${isDarkMode ? 'text-zinc-500' : 'text-zinc-600'}`}>{exp.description}</p>
                 </div>
               ))}
             </div>

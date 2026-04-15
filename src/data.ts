@@ -2,7 +2,6 @@ import {
   Palette, 
   Layout,
   Database,
-  TestTube,
   Plane,
   Film,
   Brush,
@@ -11,9 +10,6 @@ import {
   Terminal,
   Globe,
   Music,
-  ClipboardCheck,
-  FileEdit,
-  CheckCircle,
   Layers,
   Shapes,
   Image as ImageIcon,
@@ -31,24 +27,22 @@ import {
   SiJavascript,
   SiCss,
   SiPython,
-  SiGo,
-  SiDotnet,
   SiC,
-  SiMysql,
   SiGit,
-  SiPostman,
-  SiSelenium
+  SiHtml5,
+  SiCanva,
+  SiJira
 } from 'react-icons/si';
 
 import { FaJava } from 'react-icons/fa';
 
 export const personalInfo = {
   name: "JITHMI SHIHARA",
-  role: "Frontend Developer & UI/UX Designer",
+  role: "Associate UI/UX Engineer",
   location: "Colombo, Sri Lanka",
-  phone: "+94 765 694 707",
+  phone: "076 569 4707",
   email: "jithmishihara@gmail.com",
-  summary: "I am a committed and enthusiastic person who loves learning and facing new challenges. With a solid understanding of the basics, I am well-prepared to adapt to different situations. My communication skills enable me to work effectively in a team. My ultimate life goal is to become a leader in a respected company, and I have actively pursued this ambition.",
+  summary: "Creative and detail-oriented UI/UX Engineer with experience designing intuitive, user-centered digital products for web and mobile platforms. Strong background in user research, wireframing, prototyping, and usability testing, combined with front-end development knowledge. Passionate about delivering seamless user experiences that align with business goals.",
   socials: [
     { name: "LinkedIn", url: "https://linkedin.com/in/jithmi-shihara", icon: Globe },
     { name: "GitHub", url: "https://github.com/JithmiShihara", icon: Terminal },
@@ -59,57 +53,54 @@ export const personalInfo = {
 
 export const skills = [
   {
-    category: "UI / UX Design",
+    category: "Design",
     icon: Palette,
     color: "from-pink-500 to-rose-500",
     tools: [
-      { name: "Figma", level: 95, desc: "Design Systems", icon: SiFigma },
-      { name: "Adobe XD", level: 85, desc: "Prototyping", icon: Layers },
-      { name: "Illustrator", level: 80, desc: "Vector Art", icon: Shapes },
-      { name: "Photoshop", level: 75, desc: "Visuals", icon: ImageIcon }
+      { name: "User Research", level: 90, desc: "User Insights", icon: Users },
+      { name: "Wireframing", level: 95, desc: "Structural Layouts", icon: Layout },
+      { name: "Prototyping", level: 90, desc: "Interactive Flows", icon: Layers },
+      { name: "Interaction Design", level: 85, desc: "User Engagement", icon: Lightbulb },
+      { name: "Information Architecture", level: 85, desc: "Data Structure", icon: Database }
     ]
   },
   {
-    category: "Web Development",
-    icon: Layout,
+    category: "Tools",
+    icon: Briefcase,
     color: "from-blue-500 to-cyan-500",
     tools: [
-      { name: "React", level: 90, desc: "Modern UI", icon: SiReact },
-      { name: "JavaScript", level: 85, desc: "ES6+ Logic", icon: SiJavascript },
-      { name: "HTML & CSS", level: 95, desc: "Responsive Design", icon: SiCss }
+      { name: "Figma", level: 95, desc: "Main Design Tool", icon: SiFigma },
+      { name: "Balsamiq", level: 85, desc: "Low-fi Wireframes", icon: Layout },
+      { name: "Adobe Illustrator", level: 80, desc: "Vector Graphics", icon: Shapes },
+      { name: "Photoshop", level: 80, desc: "Image Editing", icon: ImageIcon },
+      { name: "Canva", level: 90, desc: "Quick Graphics", icon: SiCanva },
+      { name: "Jira", level: 85, desc: "Project Mgmt", icon: SiJira },
+      { name: "Git", level: 85, desc: "Version Control", icon: SiGit }
     ]
   },
   {
-    category: "Programming",
+    category: "Technologies",
     icon: Terminal,
     color: "from-emerald-500 to-teal-500",
     tools: [
-      { name: "Java", level: 80, desc: "OOP Systems", icon: FaJava },
-      { name: "Python", level: 75, desc: "Data & Scripts", icon: SiPython },
-      { name: "Golang", level: 70, desc: "Backend", icon: SiGo },
-      { name: "ASP.NET", level: 75, desc: "Web Apps", icon: SiDotnet },
-      { name: "C", level: 80, desc: "Core Logic", icon: SiC }
+      { name: "HTML", level: 95, desc: "Web Structure", icon: SiHtml5 },
+      { name: "CSS", level: 90, desc: "Web Styling", icon: SiCss },
+      { name: "JavaScript", level: 85, desc: "Logic & Interactivity", icon: SiJavascript },
+      { name: "React", level: 85, desc: "Modern UI Framework", icon: SiReact },
+      { name: "Python", level: 75, desc: "Scripting & Data", icon: SiPython },
+      { name: "Java", level: 70, desc: "OOP Development", icon: FaJava },
+      { name: "C", level: 75, desc: "Core Programming", icon: SiC }
     ]
   },
   {
-    category: "Databases & Tools",
-    icon: Database,
+    category: "Processes",
+    icon: Award,
     color: "from-violet-500 to-purple-500",
     tools: [
-      { name: "MySQL", level: 85, desc: "Data Mgmt", icon: SiMysql },
-      { name: "Git", level: 90, desc: "Version Control", icon: SiGit },
-      { name: "Postman", level: 85, desc: "API Testing", icon: SiPostman },
-      { name: "Test Automation", level: 70, desc: "Scripts", icon: SiSelenium }
-    ]
-  },
-  {
-    category: "Quality Assurance",
-    icon: TestTube,
-    color: "from-orange-500 to-amber-500",
-    tools: [
-      { name: "Manual Testing", level: 95, desc: "Execution", icon: ClipboardCheck },
-      { name: "Test Case Design", level: 90, desc: "Architecture", icon: FileEdit },
-      { name: "Test Execution", level: 95, desc: "Quality Control", icon: CheckCircle }
+      { name: "Design Thinking", level: 95, desc: "Problem Solving", icon: Lightbulb },
+      { name: "Human-Centered Design", level: 90, desc: "User Focus", icon: Users },
+      { name: "Agile", level: 85, desc: "Workflow", icon: Handshake },
+      { name: "Design Sprints", level: 85, desc: "Rapid Iteration", icon: Layers }
     ]
   }
 ];
@@ -133,42 +124,34 @@ export const interests = [
 
 export const projects = [
   {
-    title: "Automated Handwritten Answers Grading System",
-    category: "Final Year Research | Ongoing",
-    description: "An automated Pali language and Sinhala handwritten answers grading feedback system using deep learning techniques.",
-    tech: ["Python", "CNN", "RNN", "ML", "NLP"],
-    link: "https://github.com/JithmiShihara",
-    featured: true
-  },
-  {
-    title: "Image Analysis Boat Tracking System",
-    category: "Intern Project",
-    description: "Designed and implemented a boat identification and classification system for the Sri Lanka Navy and Coast Guard to automate port management.",
-    tech: ["Python", "Java", "MySQL", "Figma (UI Design)"],
-    link: "https://github.com/JithmiShihara",
-    featured: true
-  },
-  {
-    title: "Employee Management System (BCGR)",
-    category: "Intern Project",
+    title: "Employee Management System",
+    category: "Software Project",
     description: "Developed an employee management system in collaboration with the Bureau of Rehabilitation.",
-    tech: ["ASP.NET", "Figma (UI Design)"],
+    tech: ["ASP.NET", "Figma"],
     link: "https://github.com/JithmiShihara",
-    featured: false
+    featured: true
   },
   {
-    title: "Web Based Online Shopping System",
-    category: "Software Project | 2021–2022",
+    title: "E-Commerce Platform",
+    category: "Web Development",
     description: "A user-friendly platform to buy and sell products, featuring discount scheduling and category management.",
     tech: ["React", "Golang", "MySQL"],
     link: "https://github.com/JithmiShihara",
-    featured: false
+    featured: true
+  },
+  {
+    title: "AI Answer Grading System",
+    category: "Research Project",
+    description: "An automated Pali language and Sinhala handwritten answers grading feedback system using deep learning techniques.",
+    tech: ["ML", "NLP", "CNN", "RNN"],
+    link: "https://github.com/JithmiShihara",
+    featured: true
   },
   {
     title: "Automated Tomato Sauce Machine",
-    category: "Hardware Project | 2020–2021",
+    category: "Embedded Systems",
     description: "An automated machine for making high-quality tomato sauce with less time and effort.",
-    tech: ["Atmega32A", "Atmel Studio", "Proteus 8", "C", "Kicad (PCB Design)"],
+    tech: ["Embedded Systems", "C"],
     link: "https://github.com/JithmiShihara",
     featured: false
   }
@@ -176,44 +159,43 @@ export const projects = [
 
 export const experiences = [
   {
-    role: "Software Engineer | Intern",
-    company: "Center for Defence Research and Development, Ministry of Defence",
-    period: "February 2023 – August 2023",
-    description: "Completed 6 months internship as a trainee software engineer. Worked on the Image Analysis Boat Tracking System and the Employee Management System (BCGR)."
+    role: "Associate UI/UX Engineer",
+    company: "Glamer International (Pvt) Ltd",
+    period: "May 2025 – Present",
+    description: "• Design user-centered interfaces for web and mobile platforms\n• Create wireframes, prototypes, and high-fidelity UI designs using Figma\n• Collaborate with developers and stakeholders to ensure smooth implementation\n• Conduct usability testing and iterate designs based on feedback"
+  },
+  {
+    role: "UI/UX Engineer Intern",
+    company: "Glamer International (Pvt) Ltd",
+    period: "Nov 2024 – May 2025",
+    description: "• Designed UI/UX solutions for multiple applications across industries\n• Developed mobile and web interfaces with a focus on usability and accessibility\n• Worked closely with development teams for accurate implementation\n\nKey Projects:\n• E-Warranty Management System (Mobile & Web)\n• Autonova Vehicle Services Platform\n• Agriculture Market Mobile Application\n• Court Reporter Legal App\n• Emission Tracking Dashboard"
+  },
+  {
+    role: "Software Engineer Intern",
+    company: "Center for Defence Research and Development",
+    period: "Feb 2023 – Aug 2023",
+    description: "• Contributed to boat tracking and classification system for Navy & Coast Guard\n• Designed UI components and supported backend development\n• Worked with Python, Java, and MySQL"
   }
 ];
 
 export const education = [
   {
-    degree: "BSc. (Hons) in Information Technology & Management",
+    degree: "BSc (Hons) Information Technology & Management",
     school: "University of Moratuwa",
-    period: "Reading - Expected in 2024",
-    details: "Faculty of Information Technology"
-  },
-  {
-    degree: "G.C.E Advanced Level",
-    school: "H/ Debarawewa Central College",
-    period: "2018",
-    details: "Results: 3As | Z-score: 2.004 | District Rank: 06"
-  },
-  {
-    degree: "G.C.E Ordinary Level",
-    school: "H/ Debarawewa Central College",
-    period: "2015",
-    details: "Results: Passed with distinction"
+    period: "2020 – 2024",
+    details: "Graduated with Honors"
   }
 ];
 
 export const professionalQualifications = [
-  "Learn User Experience Design from A-Z: Adobe XD UI/UX Design (Udemy)",
-  "Complete Web & Mobile Designer in 2021: UI/UX, Figma (Udemy)",
-  "Mobile Application Design & Development: Figma, Android Studio, Firebase",
-  "Computer Application Assistant: National Certificate | NVQ Level 3"
+  "UI/UX Design with Figma (Udemy)",
+  "Adobe XD UI/UX Design",
+  "Complete Web & Mobile Designer Course",
+  "NVQ Level 3 – Computer Application Assistant"
 ];
 
 export const certifications = [
-  "Hack Moral 4.0 - Mini Hackathon Competition (2022)",
-  "INTECS - Faculty of Information Technology, University of Moratuwa"
+  "HackMoral 4.0 Mini Hackathon Participant"
 ];
 
 export const dribbbleShots = [
@@ -257,8 +239,8 @@ export const referees = [
     contact: "sagaras@uom.lk"
   },
   {
-    name: "Commander K.H. Nadeera",
-    role: "Kulapathi, Chief Coordinator - IT & GIS Wing",
+    name: "Commander K.H.N. Kulapathi",
+    role: "Chief Coordinator - IT & GIS Wing",
     org: "Centre for Defence Research and Development",
     contact: "nadeerakulapathi@gmail.com"
   }
