@@ -238,15 +238,15 @@ const App = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className={`p-16 rounded-[3rem] text-white relative overflow-hidden group transition-all duration-500 animate-fluid shadow-2xl glass-card ${
+              className={`p-16 rounded-[3rem] text-white relative overflow-hidden group transition-all duration-500 animate-fluid shadow-2xl ${
                 isDarkMode 
-                  ? 'bg-indigo-600/20' 
-                  : 'bg-indigo-600/10'
+                  ? 'bg-[linear-gradient(135deg,#4f46e5,#3730a3,#6366f1,#4338ca)]' 
+                  : 'bg-[linear-gradient(135deg,#4338ca,#312e81,#4f46e5,#1e1b4b)]'
               }`}
             >
               <div className="relative z-10">
                 <h2 className="text-5xl font-black mb-6 tracking-tight">Let's build something <br /> remarkable together.</h2>
-                <p className={`text-indigo-100 text-xl mb-12 max-w-2xl mx-auto ${isDarkMode ? 'opacity-90' : 'text-indigo-900/70'}`}>
+                <p className={`text-indigo-100 text-xl mb-12 max-w-2xl mx-auto ${isDarkMode ? 'opacity-90' : 'opacity-100'}`}>
                   I'm always open to new projects, collaborations, and opportunities to push digital boundaries.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -258,7 +258,7 @@ const App = () => {
                   </a>
                   <button 
                     onClick={copyEmail}
-                    className={`inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-bold text-lg border transition-all ${isDarkMode ? 'border-white/20 bg-white/5 hover:bg-white/10' : 'border-black/10 bg-black/5 hover:bg-black/10 text-zinc-900'}`}
+                    className={`inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-bold text-lg border transition-all ${isDarkMode ? 'border-white/20 bg-white/5 hover:bg-white/10' : 'border-white/20 bg-white/10 hover:bg-white/20 text-white'}`}
                   >
                     {copied ? <Check className="w-6 h-6 text-emerald-400" /> : <Copy className="w-6 h-6" />}
                     {copied ? 'Copied!' : 'Copy Email'}
