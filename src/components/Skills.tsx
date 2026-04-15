@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { skills, softSkills, interests, experiences } from '../data';
-import { Cpu, Layout, Clock, Briefcase } from 'lucide-react';
+import { Cpu, Layout, Clock, Briefcase, Zap, Accessibility, ShieldCheck, Search } from 'lucide-react';
 import { useMemo } from 'react';
 
 interface SkillsProps {
@@ -171,23 +171,26 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
               isDarkMode ? 'bg-emerald-600/5' : 'bg-emerald-50/30'
             }`}
           >
-            <h3 className="text-[10px] font-black uppercase tracking-[0.2em] mb-6 text-emerald-500">System Health</h3>
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { label: 'Perf', val: 100 },
-                { label: 'Acc', val: 100 },
-                { label: 'Best', val: 100 },
-                { label: 'SEO', val: 100 }
-              ].map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className={`text-xl font-black ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>{stat.val}</div>
-                  <div className="text-[8px] font-bold uppercase tracking-tighter text-zinc-500">{stat.label}</div>
-                </div>
-              ))}
+            <div>
+              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] mb-6 text-emerald-500">Lighthouse Score</h3>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { label: 'Performance', val: 100, icon: Zap },
+                  { label: 'Accessibility', val: 100, icon: Accessibility },
+                  { label: 'Best Practice', val: 100, icon: ShieldCheck },
+                  { label: 'SEO', val: 100, icon: Search }
+                ].map((stat) => (
+                  <div key={stat.label} className="flex flex-col items-center p-2 rounded-xl bg-emerald-500/5 border border-emerald-500/10">
+                    <stat.icon size={12} className="text-emerald-500 mb-1" />
+                    <div className={`text-lg font-black ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>{stat.val}</div>
+                    <div className="text-[7px] font-bold uppercase tracking-tighter text-zinc-500">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
             <div className="mt-6 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[8px] font-black uppercase tracking-widest text-emerald-500">All Systems Nominal</span>
+              <span className="text-[8px] font-black uppercase tracking-widest text-emerald-500">Core Web Vitals: Optimal</span>
             </div>
           </motion.div>
         </div>
