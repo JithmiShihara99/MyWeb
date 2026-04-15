@@ -151,6 +151,35 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
               ))}
             </div>
           </motion.div>
+
+          {/* System Health / Performance - Bento */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className={`p-8 rounded-3xl glass-card flex flex-col justify-between group ${
+              isDarkMode ? 'bg-emerald-600/5' : 'bg-emerald-50/30'
+            }`}
+          >
+            <h3 className="text-[10px] font-black uppercase tracking-[0.2em] mb-6 text-emerald-500">System Health</h3>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { label: 'Perf', val: 100 },
+                { label: 'Acc', val: 100 },
+                { label: 'Best', val: 100 },
+                { label: 'SEO', val: 100 }
+              ].map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <div className={`text-xl font-black ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>{stat.val}</div>
+                  <div className="text-[8px] font-bold uppercase tracking-tighter text-zinc-500">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-[8px] font-black uppercase tracking-widest text-emerald-500">All Systems Nominal</span>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

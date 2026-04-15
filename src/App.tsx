@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring, useTransform } from 'framer-motion';
 import { Moon, Sun, Menu, X, Mail, ArrowUp, Copy, Check } from 'lucide-react';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import DribbbleGallery from './components/DribbbleGallery';
 import Experience from './components/Experience';
+import UXAudit from './components/UXAudit';
+import Chatbot from './components/Chatbot';
 import Cursor from './components/Cursor';
 import Preloader from './components/Preloader';
 import { personalInfo, referees } from './data';
@@ -25,6 +27,14 @@ const App = () => {
     damping: 30,
     restDelta: 0.001
   });
+
+  const bgColor = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.5, 0.8, 1],
+    isDarkMode 
+      ? ["#09090b", "#1e1b4b", "#312e81", "#1e1b4b", "#09090b"] 
+      : ["#f8f9fa", "#eef2ff", "#f5f3ff", "#eef2ff", "#f8f9fa"]
+  );
 
   const copyEmail = () => {
     navigator.clipboard.writeText(personalInfo.email);
@@ -79,7 +89,10 @@ const App = () => {
   ];
 
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${isDarkMode ? 'mesh-gradient text-zinc-100' : 'mesh-gradient-light text-zinc-900'}`}>
+    <motion.div 
+      style={{ backgroundColor: bgColor }}
+      className={`min-h-screen transition-colors duration-500 ${isDarkMode ? 'mesh-gradient text-zinc-100' : 'mesh-gradient-light text-zinc-900'}`}
+    >
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-indigo-500 origin-left z-[100]"
         style={{ scaleX }}
@@ -89,6 +102,7 @@ const App = () => {
       </AnimatePresence>
       <Analytics />
       <Cursor />
+      <Chatbot isDarkMode={isDarkMode} />
       
       {/* Navigation */}
       <nav className={`fixed top-0 w-full z-50 transition-colors duration-500 glass-card ${isDarkMode ? 'bg-zinc-950/20' : 'bg-white/20'} backdrop-blur-xl px-6 lg:px-20 py-4`}>
@@ -171,6 +185,7 @@ const App = () => {
         <Projects isDarkMode={isDarkMode} />
         <DribbbleGallery isDarkMode={isDarkMode} />
         <Experience isDarkMode={isDarkMode} />
+        <UXAudit isDarkMode={isDarkMode} />
 
         {/* Referees Section */}
         <section id="referees" className="py-24 px-6 lg:px-20">
@@ -294,7 +309,7 @@ const App = () => {
           </div>
         </div>
       </footer>
-    </div>
+    </motion.div>
   );
 };
 
