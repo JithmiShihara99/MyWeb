@@ -1,12 +1,47 @@
 import { motion } from 'framer-motion';
-import { skills, softSkills, interests } from '../data';
-import { Cpu, Layout, PenTool, Sparkles } from 'lucide-react';
+import { skills, softSkills, interests, experiences } from '../data';
+import { Cpu, Layout, Clock, Briefcase } from 'lucide-react';
+import { useMemo } from 'react';
 
 interface SkillsProps {
   isDarkMode: boolean;
 }
 
 const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
+  // Automatically calculate total experience in months
+  const totalExperience = useMemo(() => {
+    const parseDate = (dateStr: string) => {
+      if (dateStr.toLowerCase().includes('present')) return new Date();
+      const parts = dateStr.split(' ');
+      const month = parts[0];
+      const year = parseInt(parts[1]);
+      const months: Record<string, number> = {
+        'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3, 'May': 4, 'Jun': 5,
+        'Jul': 6, 'Aug': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11,
+        'January': 0, 'February': 1, 'March': 2, 'April': 3, 'June': 5,
+        'July': 6, 'August': 7, 'September': 8, 'October': 9, 'November': 10, 'December': 11
+      };
+      return new Date(year, months[month] || 0);
+    };
+
+    let totalMonths = 0;
+    experiences.forEach(exp => {
+      const range = exp.period.split(' – ');
+      const start = parseDate(range[0]);
+      const end = parseDate(range[1]);
+      const diff = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+      totalMonths += Math.max(0, diff);
+    });
+
+    const years = Math.floor(totalMonths / 12);
+    const remainingMonths = totalMonths % 12;
+    
+    if (years > 0) {
+      return `${years}.${remainingMonths} Years`;
+    }
+    return `${totalMonths} Months`;
+  }, []);
+
   return (
     <section id="skills" className="py-24 px-6 lg:px-20 relative overflow-hidden">
       <div className="container mx-auto relative z-10">
@@ -22,127 +57,86 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[minmax(180px,auto)]">
-          {/* Impact Stats Card - Large Bento */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className={`md:col-span-2 md:row-span-2 p-8 rounded-3xl glass-card flex flex-col justify-between group overflow-hidden relative ${
-              isDarkMode ? 'bg-indigo-600/10' : 'bg-indigo-50/50'
-            }`}
-          >
-            <div className="relative z-10">
-              <h3 className="text-sm font-bold uppercase tracking-widest mb-8 text-indigo-500 flex items-center gap-2">
-                <Sparkles size={16} /> Impact Metrics
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <div>
-                  <div className={`text-5xl font-black mb-1 ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>20+</div>
-                  <div className={`text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'text-zinc-400' : 'text-zinc-500'}`}>UI/UX Screens Designed</div>
-                </div>
-                <div>
-                  <div className={`text-5xl font-black mb-1 ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>500+</div>
-                  <div className={`text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'text-zinc-400' : 'text-zinc-500'}`}>Hours of Engineering</div>
-                </div>
-                <div>
-                  <div className={`text-5xl font-black mb-1 ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>06</div>
-                  <div className={`text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'text-zinc-400' : 'text-zinc-500'}`}>Months Defense Research</div>
-                </div>
-              </div>
-            </div>
-            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl group-hover:bg-indigo-500/20 transition-all duration-700" />
-          </motion.div>
-
-          {/* Design Stack Highlight - Tall Bento */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className={`md:row-span-2 p-8 rounded-3xl glass-card flex flex-col group ${
-              isDarkMode ? 'bg-rose-600/5' : 'bg-rose-50/30'
-            }`}
-          >
-            <h3 className="text-sm font-bold uppercase tracking-widest mb-8 text-rose-500 flex items-center gap-2">
-              <PenTool size={16} /> Design Stack
-            </h3>
-            <div className="space-y-6">
-              {skills.find(s => s.category === "Design")?.tools.map((tool) => (
-                <div key={tool.name} className="flex items-center gap-4 group/item">
-                  <div className={`p-2 rounded-lg transition-colors ${isDarkMode ? 'bg-zinc-800 group-hover/item:bg-rose-500/20' : 'bg-white group-hover/item:bg-rose-500/10'}`}>
-                    <tool.icon size={18} className={isDarkMode ? 'text-zinc-400 group-hover/item:text-rose-400' : 'text-zinc-600 group-hover/item:text-rose-600'} />
-                  </div>
-                  <div>
-                    <div className={`text-sm font-bold ${isDarkMode ? 'text-zinc-200' : 'text-zinc-800'}`}>{tool.name}</div>
-                    <div className="text-[10px] uppercase tracking-tighter text-zinc-500">{tool.desc}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Individual Skill Cards */}
-          {skills.filter(s => s.category !== "Design").map((skill, index) => (
+        {/* Impact Metrics - Individual Tiles */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          {[
+            { label: 'UI/UX Screens', val: '20+', icon: Layout, color: 'text-indigo-500' },
+            { label: 'Total Experience', val: totalExperience, icon: Clock, color: 'text-rose-500' },
+            { label: 'Defense Research', val: '06 Months', icon: Briefcase, color: 'text-emerald-500' },
+            { label: 'Engineering', val: '500+ Hrs', icon: Cpu, color: 'text-amber-500' }
+          ].map((stat, i) => (
             <motion.div
-              key={skill.category}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              key={stat.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 + (index * 0.1) }}
-              className="p-6 rounded-3xl glass-card group flex flex-col justify-between"
+              transition={{ delay: i * 0.1 }}
+              className="p-6 rounded-3xl glass-card flex items-center gap-4 group"
             >
-              <div>
-                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${skill.color} p-2.5 mb-4 shadow-lg shadow-indigo-500/10`}>
-                  <skill.icon className="w-full h-full text-white" />
-                </div>
-                <h3 className={`text-lg font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>{skill.category}</h3>
+              <div className={`p-3 rounded-2xl bg-white/5 border border-white/5 ${stat.color}`}>
+                <stat.icon size={24} />
               </div>
-              <div className="flex flex-wrap gap-2 mt-auto">
-                {skill.tools.slice(0, 3).map((tool) => (
-                  <span key={tool.name} className={`text-[10px] font-bold px-2 py-1 rounded-md ${isDarkMode ? 'bg-zinc-800 text-zinc-400' : 'bg-zinc-100 text-zinc-500'}`}>
-                    {tool.name}
-                  </span>
-                ))}
-                {skill.tools.length > 3 && (
-                  <span className={`text-[10px] font-bold px-2 py-1 rounded-md ${isDarkMode ? 'bg-zinc-800 text-zinc-400' : 'bg-zinc-100 text-zinc-500'}`}>
-                    +{skill.tools.length - 3}
-                  </span>
-                )}
+              <div>
+                <div className={`text-2xl font-black ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>{stat.val}</div>
+                <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">{stat.label}</div>
               </div>
             </motion.div>
           ))}
+        </div>
 
-          {/* Bridge Section - Wide Bento */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className={`md:col-span-2 p-8 rounded-3xl glass-card flex items-center justify-between group overflow-hidden relative ${
-              isDarkMode ? 'bg-emerald-600/5' : 'bg-emerald-50/30'
-            }`}
-          >
-            <div className="relative z-10 max-w-md">
-              <h3 className="text-sm font-bold uppercase tracking-widest mb-4 text-emerald-500 flex items-center gap-2">
-                <Cpu size={16} /> The Bridge
-              </h3>
-              <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-zinc-400' : 'text-zinc-600'}`}>
-                I specialize in translating high-fidelity designs into pixel-perfect, accessible code using modern frameworks and design systems.
-              </p>
-            </div>
-            <div className="hidden sm:block opacity-20 group-hover:opacity-40 transition-opacity duration-500">
-               <Layout size={100} className="text-emerald-500 rotate-12" />
-            </div>
-          </motion.div>
+        {/* Skill Cards Grid with Progress Bars */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          {skills.map((skill, index) => (
+            <motion.div
+              key={skill.category}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className={`p-8 rounded-[2.5rem] glass-card group flex flex-col`}
+            >
+              <div className="flex items-center gap-4 mb-8">
+                <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${skill.color} p-3 shadow-lg`}>
+                  <skill.icon className="w-full h-full text-white" />
+                </div>
+                <h3 className={`text-2xl font-black ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>{skill.category}</h3>
+              </div>
+              
+              <div className="grid gap-6">
+                {skill.tools.map((tool) => (
+                  <div key={tool.name}>
+                    <div className="flex justify-between items-end mb-2">
+                      <div className="flex items-center gap-2">
+                        <tool.icon size={14} className={isDarkMode ? 'text-zinc-400' : 'text-zinc-600'} />
+                        <span className={`text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'text-zinc-300' : 'text-zinc-700'}`}>{tool.name}</span>
+                      </div>
+                      <span className={`text-[10px] font-medium text-zinc-500`}>{tool.desc}</span>
+                    </div>
+                    <div className={`h-1.5 w-full rounded-full overflow-hidden ${isDarkMode ? 'bg-zinc-800' : 'bg-zinc-100'}`}>
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${tool.level}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.5, ease: "easeOut" }}
+                        className={`h-full bg-gradient-to-r ${skill.color}`}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-          {/* Soft Skills & Interests - Combined in Bento */}
+        {/* Bottom Bento Row */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <motion.div
              initial={{ opacity: 0, scale: 0.9 }}
              whileInView={{ opacity: 1, scale: 1 }}
              viewport={{ once: true }}
-             className="md:col-span-2 p-8 rounded-3xl glass-card flex flex-col justify-center"
+             className="md:col-span-2 p-8 rounded-3xl glass-card flex items-center justify-center"
           >
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap justify-center gap-3">
               {[...softSkills.slice(0, 4), ...interests.slice(0, 2)].map((item) => (
                 <div key={item.name} className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${isDarkMode ? 'bg-zinc-800/50 border-zinc-700/30 text-zinc-300' : 'bg-white border-zinc-200 text-zinc-600 shadow-sm'}`}>
                   <item.icon size={14} className="text-indigo-500" />
@@ -152,7 +146,6 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
             </div>
           </motion.div>
 
-          {/* System Health / Performance - Bento */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
