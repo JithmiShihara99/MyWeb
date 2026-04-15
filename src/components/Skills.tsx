@@ -134,15 +134,32 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
              initial={{ opacity: 0, scale: 0.9 }}
              whileInView={{ opacity: 1, scale: 1 }}
              viewport={{ once: true }}
-             className="md:col-span-2 p-8 rounded-3xl glass-card flex items-center justify-center"
+             className="md:col-span-2 p-8 rounded-3xl glass-card flex flex-col gap-8"
           >
-            <div className="flex flex-wrap justify-center gap-3">
-              {[...softSkills.slice(0, 4), ...interests.slice(0, 2)].map((item) => (
-                <div key={item.name} className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${isDarkMode ? 'bg-zinc-800/50 border-zinc-700/30 text-zinc-300' : 'bg-white border-zinc-200 text-zinc-600 shadow-sm'}`}>
-                  <item.icon size={14} className="text-indigo-500" />
-                  <span className="text-xs font-bold">{item.name}</span>
-                </div>
-              ))}
+            {/* Soft Skills Section */}
+            <div>
+              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] mb-4 text-indigo-500">Soft Skills</h4>
+              <div className="flex flex-wrap gap-3">
+                {softSkills.map((item) => (
+                  <div key={item.name} className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${isDarkMode ? 'bg-indigo-500/5 border-indigo-500/20 text-indigo-300' : 'bg-indigo-50 border-indigo-100 text-indigo-600 shadow-sm'}`}>
+                    <item.icon size={14} className={isDarkMode ? 'text-indigo-400' : 'text-indigo-500'} />
+                    <span className="text-xs font-bold">{item.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Interests Section */}
+            <div>
+              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] mb-4 text-rose-500">Personal Interests</h4>
+              <div className="flex flex-wrap gap-3">
+                {interests.map((item) => (
+                  <div key={item.name} className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${isDarkMode ? 'bg-rose-500/5 border-rose-500/20 text-rose-300' : 'bg-rose-50 border-rose-100 text-rose-600 shadow-sm'}`}>
+                    <item.icon size={14} className={isDarkMode ? 'text-rose-400' : 'text-rose-500'} />
+                    <span className="text-xs font-bold">{item.name}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
 
