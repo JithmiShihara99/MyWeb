@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { skills, softSkills, interests } from '../data';
+import { Cpu, Layout, PenTool, Sparkles } from 'lucide-react';
 
 interface SkillsProps {
   isDarkMode: boolean;
@@ -7,8 +8,8 @@ interface SkillsProps {
 
 const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
   return (
-    <section id="skills" className={`py-24 px-6 lg:px-20 transition-colors ${isDarkMode ? 'bg-zinc-950/50' : 'bg-zinc-50/50'}`}>
-      <div className="container mx-auto">
+    <section id="skills" className="py-24 px-6 lg:px-20 relative overflow-hidden">
+      <div className="container mx-auto relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -17,140 +18,135 @@ const Skills: React.FC<SkillsProps> = ({ isDarkMode }) => {
         >
           <h2 className={`text-4xl lg:text-5xl font-bold mb-4 transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Technical Stack</h2>
           <p className={`max-w-2xl text-lg transition-colors ${isDarkMode ? 'text-zinc-500' : 'text-zinc-600'}`}>
-            A curated list of technologies and tools I use to bring ideas to life, 
-            focused on performance, scalability, and user experience.
+            A curated list of technologies and tools I use to bridge the gap between complex engineering and intuitive design.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-          {/* Impact Stats Card */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[minmax(180px,auto)]">
+          {/* Impact Stats Card - Large Bento */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className={`p-8 rounded-3xl border transition-all flex flex-col justify-center ${
-              isDarkMode 
-                ? 'bg-indigo-600/10 border-indigo-500/20 text-white' 
-                : 'bg-indigo-50 border-indigo-100 text-indigo-900 shadow-sm'
+            className={`md:col-span-2 md:row-span-2 p-8 rounded-3xl glass-card flex flex-col justify-between group overflow-hidden relative ${
+              isDarkMode ? 'bg-indigo-600/10' : 'bg-indigo-50/50'
             }`}
           >
-            <h3 className="text-sm font-bold uppercase tracking-widest mb-6 opacity-70">Impact Metrics</h3>
-            <div className="space-y-6">
-              <div>
-                <div className="text-4xl font-black mb-1">20+</div>
-                <div className="text-xs font-bold uppercase tracking-wider opacity-60">UI/UX Screens Designed</div>
-              </div>
-              <div>
-                <div className="text-4xl font-black mb-1">500+</div>
-                <div className="text-xs font-bold uppercase tracking-wider opacity-60">Hours of Engineering</div>
-              </div>
-              <div>
-                <div className="text-4xl font-black mb-1">06</div>
-                <div className="text-xs font-bold uppercase tracking-wider opacity-60">Months Defense Research</div>
+            <div className="relative z-10">
+              <h3 className="text-sm font-bold uppercase tracking-widest mb-8 text-indigo-500 flex items-center gap-2">
+                <Sparkles size={16} /> Impact Metrics
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div>
+                  <div className={`text-5xl font-black mb-1 ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>20+</div>
+                  <div className={`text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'text-zinc-400' : 'text-zinc-500'}`}>UI/UX Screens Designed</div>
+                </div>
+                <div>
+                  <div className={`text-5xl font-black mb-1 ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>500+</div>
+                  <div className={`text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'text-zinc-400' : 'text-zinc-500'}`}>Hours of Engineering</div>
+                </div>
+                <div>
+                  <div className={`text-5xl font-black mb-1 ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>06</div>
+                  <div className={`text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'text-zinc-400' : 'text-zinc-500'}`}>Months Defense Research</div>
+                </div>
               </div>
             </div>
+            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl group-hover:bg-indigo-500/20 transition-all duration-700" />
           </motion.div>
 
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill.category}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-              className={`p-8 rounded-3xl border transition-all group ${isDarkMode ? 'bg-zinc-900 border-zinc-800 hover:border-indigo-500/50' : 'bg-white border-zinc-200 hover:border-indigo-500/50 shadow-sm'}`}
-            >
-              <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${skill.color} p-3 mb-6 shadow-lg shadow-indigo-500/10`}>
-                <skill.icon className="w-full h-full text-white" />
-              </div>
-              
-              <h3 className={`text-xl font-bold mb-4 transition-colors ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>{skill.category}</h3>
-              
-              <div className="space-y-4">
-                {skill.tools.map((tool) => (
-                  <div key={tool.name}>
-                    <div className="flex justify-between items-end mb-1.5">
-                      <div className="flex items-center gap-2">
-                        <div className={`p-1 rounded-md ${isDarkMode ? 'bg-zinc-800 text-zinc-300' : 'bg-zinc-100 text-zinc-700'}`}>
-                          <tool.icon size={12} />
-                        </div>
-                        <span className={`text-xs font-bold uppercase tracking-wider ${isDarkMode ? 'text-zinc-300' : 'text-zinc-700'}`}>{tool.name}</span>
-                      </div>
-                      <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded-md ${isDarkMode ? 'bg-zinc-800 text-zinc-400' : 'bg-zinc-100 text-zinc-500'}`}>{tool.desc}</span>
-                    </div>
-                    <div className={`h-1 w-full rounded-full overflow-hidden ${isDarkMode ? 'bg-zinc-800' : 'bg-zinc-100'}`}>
-                      <motion.div 
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${tool.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1.5, ease: "easeOut", delay: index * 0.1 }}
-                        className={`h-full bg-gradient-to-r ${skill.color}`}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Tech Marquee */}
-        <div className="mt-20 overflow-hidden relative">
-          <div className={`absolute inset-y-0 left-0 w-32 z-10 bg-gradient-to-r pointer-events-none ${isDarkMode ? 'from-zinc-950' : 'from-white'}`} />
-          <div className={`absolute inset-y-0 right-0 w-32 z-10 bg-gradient-to-l pointer-events-none ${isDarkMode ? 'from-zinc-950' : 'from-white'}`} />
-          
-          <motion.div 
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="flex gap-12 whitespace-nowrap w-max px-12"
-          >
-            {[...skills.flatMap(s => s.tools.map(t => t.name)), ...skills.flatMap(s => s.tools.map(t => t.name))].map((name, idx) => (
-              <span key={idx} className={`text-4xl lg:text-6xl font-black uppercase tracking-tighter opacity-10 transition-opacity hover:opacity-100 cursor-default ${isDarkMode ? 'text-white' : 'text-zinc-950'}`}>
-                {name}
-              </span>
-            ))}
-          </motion.div>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 mt-20">
-          {/* Soft Skills */}
+          {/* Design Stack Highlight - Tall Bento */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className={`p-10 rounded-[2.5rem] border transition-colors ${isDarkMode ? 'bg-zinc-900/40 border-zinc-800/50' : 'bg-zinc-50 border-zinc-200'}`}
+            transition={{ delay: 0.1 }}
+            className={`md:row-span-2 p-8 rounded-3xl glass-card flex flex-col group ${
+              isDarkMode ? 'bg-rose-600/5' : 'bg-rose-50/30'
+            }`}
           >
-            <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 transition-colors ${isDarkMode ? 'text-zinc-100' : 'text-zinc-900'}`}>
-              <span className="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-sm font-black transition-colors">SS</span>
-              Soft Skills
+            <h3 className="text-sm font-bold uppercase tracking-widest mb-8 text-rose-500 flex items-center gap-2">
+              <PenTool size={16} /> Design Stack
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {softSkills.map((skill) => (
-                <div key={skill.name} className={`flex items-center gap-3 p-3 rounded-xl border transition-all group ${isDarkMode ? 'bg-zinc-800/50 border-zinc-700/30 hover:border-indigo-500/30' : 'bg-white border-zinc-200 shadow-sm hover:border-indigo-500/30'}`}>
-                  <skill.icon className={`w-5 h-5 transition-transform group-hover:scale-110 ${isDarkMode ? 'text-indigo-400' : 'text-indigo-600'}`} />
-                  <span className={`transition-colors font-medium text-sm ${isDarkMode ? 'text-zinc-400 group-hover:text-zinc-200' : 'text-zinc-600 group-hover:text-indigo-600'}`}>{skill.name}</span>
+            <div className="space-y-6">
+              {skills.find(s => s.category === "Design")?.tools.map((tool) => (
+                <div key={tool.name} className="flex items-center gap-4 group/item">
+                  <div className={`p-2 rounded-lg transition-colors ${isDarkMode ? 'bg-zinc-800 group-hover/item:bg-rose-500/20' : 'bg-white group-hover/item:bg-rose-500/10'}`}>
+                    <tool.icon size={18} className={isDarkMode ? 'text-zinc-400 group-hover/item:text-rose-400' : 'text-zinc-600 group-hover/item:text-rose-600'} />
+                  </div>
+                  <div>
+                    <div className={`text-sm font-bold ${isDarkMode ? 'text-zinc-200' : 'text-zinc-800'}`}>{tool.name}</div>
+                    <div className="text-[10px] uppercase tracking-tighter text-zinc-500">{tool.desc}</div>
+                  </div>
                 </div>
               ))}
             </div>
           </motion.div>
 
-          {/* Interests */}
+          {/* Individual Skill Cards */}
+          {skills.filter(s => s.category !== "Design").map((skill, index) => (
+            <motion.div
+              key={skill.category}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 + (index * 0.1) }}
+              className="p-6 rounded-3xl glass-card group flex flex-col justify-between"
+            >
+              <div>
+                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${skill.color} p-2.5 mb-4 shadow-lg shadow-indigo-500/10`}>
+                  <skill.icon className="w-full h-full text-white" />
+                </div>
+                <h3 className={`text-lg font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>{skill.category}</h3>
+              </div>
+              <div className="flex flex-wrap gap-2 mt-auto">
+                {skill.tools.slice(0, 3).map((tool) => (
+                  <span key={tool.name} className={`text-[10px] font-bold px-2 py-1 rounded-md ${isDarkMode ? 'bg-zinc-800 text-zinc-400' : 'bg-zinc-100 text-zinc-500'}`}>
+                    {tool.name}
+                  </span>
+                ))}
+                {skill.tools.length > 3 && (
+                  <span className={`text-[10px] font-bold px-2 py-1 rounded-md ${isDarkMode ? 'bg-zinc-800 text-zinc-400' : 'bg-zinc-100 text-zinc-500'}`}>
+                    +{skill.tools.length - 3}
+                  </span>
+                )}
+              </div>
+            </motion.div>
+          ))}
+
+          {/* Bridge Section - Wide Bento */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className={`p-10 rounded-[2.5rem] border transition-colors ${isDarkMode ? 'bg-zinc-900/40 border-zinc-800/50' : 'bg-zinc-50 border-zinc-200'}`}
+            className={`md:col-span-2 p-8 rounded-3xl glass-card flex items-center justify-between group overflow-hidden relative ${
+              isDarkMode ? 'bg-emerald-600/5' : 'bg-emerald-50/30'
+            }`}
           >
-            <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 transition-colors ${isDarkMode ? 'text-zinc-100' : 'text-zinc-900'}`}>
-              <span className="w-8 h-8 rounded-lg bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center text-sm font-black transition-colors">IN</span>
-              Interests
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {interests.map((interest) => (
-                <div key={interest.name} className={`flex items-center gap-3 p-3 rounded-xl border transition-all group ${isDarkMode ? 'bg-zinc-800/50 border-zinc-700/30 hover:border-rose-500/30' : 'bg-white border-zinc-200 shadow-sm hover:border-rose-500/30'}`}>
-                  <interest.icon className={`w-5 h-5 transition-transform group-hover:scale-110 ${isDarkMode ? 'text-rose-400' : 'text-rose-600'}`} />
-                  <span className={`transition-colors font-medium ${isDarkMode ? 'text-zinc-400 group-hover:text-zinc-200' : 'text-zinc-600 group-hover:text-rose-600'}`}>{interest.name}</span>
+            <div className="relative z-10 max-w-md">
+              <h3 className="text-sm font-bold uppercase tracking-widest mb-4 text-emerald-500 flex items-center gap-2">
+                <Cpu size={16} /> The Bridge
+              </h3>
+              <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-zinc-400' : 'text-zinc-600'}`}>
+                I specialize in translating high-fidelity designs into pixel-perfect, accessible code using modern frameworks and design systems.
+              </p>
+            </div>
+            <div className="hidden sm:block opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+               <Layout size={100} className="text-emerald-500 rotate-12" />
+            </div>
+          </motion.div>
+
+          {/* Soft Skills & Interests - Combined in Bento */}
+          <motion.div
+             initial={{ opacity: 0, scale: 0.9 }}
+             whileInView={{ opacity: 1, scale: 1 }}
+             viewport={{ once: true }}
+             className="md:col-span-2 p-8 rounded-3xl glass-card flex flex-col justify-center"
+          >
+            <div className="flex flex-wrap gap-3">
+              {[...softSkills.slice(0, 4), ...interests.slice(0, 2)].map((item) => (
+                <div key={item.name} className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${isDarkMode ? 'bg-zinc-800/50 border-zinc-700/30 text-zinc-300' : 'bg-white border-zinc-200 text-zinc-600 shadow-sm'}`}>
+                  <item.icon size={14} className="text-indigo-500" />
+                  <span className="text-xs font-bold">{item.name}</span>
                 </div>
               ))}
             </div>

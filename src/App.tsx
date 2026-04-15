@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { Moon, Sun, Menu, X, Mail, ArrowUp, Copy, Check } from 'lucide-react';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
@@ -18,6 +18,13 @@ const App = () => {
   const [currentTime, setCurrentTime] = useState("");
   const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   const copyEmail = () => {
     navigator.clipboard.writeText(personalInfo.email);
@@ -72,7 +79,11 @@ const App = () => {
   ];
 
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${isDarkMode ? 'bg-zinc-950 text-zinc-100' : 'bg-zinc-50 text-zinc-900'}`}>
+    <div className={`min-h-screen transition-colors duration-500 ${isDarkMode ? 'mesh-gradient text-zinc-100' : 'mesh-gradient-light text-zinc-900'}`}>
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-indigo-500 origin-left z-[100]"
+        style={{ scaleX }}
+      />
       <AnimatePresence>
         {loading && <Preloader />}
       </AnimatePresence>
@@ -80,7 +91,7 @@ const App = () => {
       <Cursor />
       
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 border-b transition-colors duration-500 ${isDarkMode ? 'border-white/5 bg-zinc-950/20' : 'border-black/5 bg-white/20'} backdrop-blur-xl px-6 lg:px-20 py-4`}>
+      <nav className={`fixed top-0 w-full z-50 transition-colors duration-500 glass-card ${isDarkMode ? 'bg-zinc-950/20' : 'bg-white/20'} backdrop-blur-xl px-6 lg:px-20 py-4`}>
         <div className="container mx-auto flex justify-between items-center">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
@@ -162,7 +173,7 @@ const App = () => {
         <Experience isDarkMode={isDarkMode} />
 
         {/* Referees Section */}
-        <section id="referees" className={`py-24 px-6 lg:px-20 transition-colors ${isDarkMode ? 'bg-zinc-950' : 'bg-white'}`}>
+        <section id="referees" className="py-24 px-6 lg:px-20">
           <div className="container mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -184,8 +195,8 @@ const App = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className={`p-10 rounded-[2.5rem] border transition-all ${
-                    isDarkMode ? 'bg-zinc-900 border-zinc-800' : 'bg-zinc-50 border-zinc-200 shadow-sm'
+                  className={`p-10 rounded-[2.5rem] glass-card transition-all ${
+                    isDarkMode ? '' : 'shadow-sm'
                   }`}
                 >
                   <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>{ref.name}</h3>
@@ -212,15 +223,15 @@ const App = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className={`p-16 rounded-[3rem] text-white relative overflow-hidden group transition-all duration-500 animate-fluid shadow-2xl ${
+              className={`p-16 rounded-[3rem] text-white relative overflow-hidden group transition-all duration-500 animate-fluid shadow-2xl glass-card ${
                 isDarkMode 
-                  ? 'bg-[linear-gradient(135deg,#4f46e5,#3730a3,#6366f1,#4338ca)]' 
-                  : 'bg-[linear-gradient(135deg,#4338ca,#312e81,#4f46e5,#1e1b4b)]'
+                  ? 'bg-indigo-600/20' 
+                  : 'bg-indigo-600/10'
               }`}
             >
               <div className="relative z-10">
                 <h2 className="text-5xl font-black mb-6 tracking-tight">Let's build something <br /> remarkable together.</h2>
-                <p className={`text-indigo-100 text-xl mb-12 max-w-2xl mx-auto ${isDarkMode ? 'opacity-90' : 'opacity-100'}`}>
+                <p className={`text-indigo-100 text-xl mb-12 max-w-2xl mx-auto ${isDarkMode ? 'opacity-90' : 'text-indigo-900/70'}`}>
                   I'm always open to new projects, collaborations, and opportunities to push digital boundaries.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -232,7 +243,7 @@ const App = () => {
                   </a>
                   <button 
                     onClick={copyEmail}
-                    className={`inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-bold text-lg border transition-all ${isDarkMode ? 'border-white/20 bg-white/5 hover:bg-white/10' : 'border-white/20 bg-white/10 hover:bg-white/20 text-white'}`}
+                    className={`inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-bold text-lg border transition-all ${isDarkMode ? 'border-white/20 bg-white/5 hover:bg-white/10' : 'border-black/10 bg-black/5 hover:bg-black/10 text-zinc-900'}`}
                   >
                     {copied ? <Check className="w-6 h-6 text-emerald-400" /> : <Copy className="w-6 h-6" />}
                     {copied ? 'Copied!' : 'Copy Email'}
@@ -256,7 +267,7 @@ const App = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className={`fixed bottom-8 right-8 z-50 p-4 rounded-full shadow-2xl border transition-all ${isDarkMode ? 'bg-zinc-900 border-zinc-800 text-white hover:bg-zinc-800' : 'bg-white border-zinc-200 text-zinc-900 hover:bg-zinc-50'}`}
+            className={`fixed bottom-8 right-8 z-50 p-4 rounded-full shadow-2xl glass-card transition-all ${isDarkMode ? 'text-white hover:bg-white/10' : 'text-zinc-900 hover:bg-black/5'}`}
           >
             <ArrowUp size={20} />
           </motion.button>

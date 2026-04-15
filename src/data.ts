@@ -129,6 +129,8 @@ export const projects = [
     description: "Developed an employee management system in collaboration with the Bureau of Rehabilitation.",
     tech: ["ASP.NET", "Figma"],
     link: "https://github.com/JithmiShihara",
+    caseStudyUrl: "https://behance.net/jithmishihara",
+    figmaUrl: "https://dribbble.com/Jithmi_Shihara",
     featured: true
   },
   {
@@ -137,6 +139,8 @@ export const projects = [
     description: "A user-friendly platform to buy and sell products, featuring discount scheduling and category management.",
     tech: ["React", "Golang", "MySQL"],
     link: "https://github.com/JithmiShihara",
+    caseStudyUrl: "https://behance.net/jithmishihara",
+    figmaUrl: "https://dribbble.com/Jithmi_Shihara",
     featured: true
   },
   {
@@ -145,6 +149,8 @@ export const projects = [
     description: "An automated Pali language and Sinhala handwritten answers grading feedback system using deep learning techniques.",
     tech: ["ML", "NLP", "CNN", "RNN"],
     link: "https://github.com/JithmiShihara",
+    caseStudyUrl: "https://behance.net/jithmishihara",
+    figmaUrl: "https://dribbble.com/Jithmi_Shihara",
     featured: true
   },
   {
@@ -153,6 +159,7 @@ export const projects = [
     description: "An automated machine for making high-quality tomato sauce with less time and effort.",
     tech: ["Embedded Systems", "C"],
     link: "https://github.com/JithmiShihara",
+    caseStudyUrl: "https://behance.net/jithmishihara",
     featured: false
   }
 ];
