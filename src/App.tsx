@@ -181,14 +181,60 @@ const App = () => {
 
       <main>
         <Hero isDarkMode={isDarkMode} currentTime={currentTime} />
-        <Skills isDarkMode={isDarkMode} />
-        <Projects isDarkMode={isDarkMode} />
-        <DribbbleGallery isDarkMode={isDarkMode} />
-        <Experience isDarkMode={isDarkMode} />
-        <UXAudit isDarkMode={isDarkMode} />
+        
+        <motion.section 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <Skills isDarkMode={isDarkMode} />
+        </motion.section>
 
-        {/* Referees Section */}
-        <section id="referees" className="py-24 px-6 lg:px-20">
+        <motion.section 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <Projects isDarkMode={isDarkMode} />
+        </motion.section>
+
+        <motion.section 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <DribbbleGallery isDarkMode={isDarkMode} />
+        </motion.section>
+
+        <motion.section 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <Experience isDarkMode={isDarkMode} />
+        </motion.section>
+
+        <motion.section 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <UXAudit isDarkMode={isDarkMode} />
+        </motion.section>
+
+        <motion.section 
+          id="referees" 
+          className="py-24 px-6 lg:px-20"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <div className="container mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -229,7 +275,7 @@ const App = () => {
               ))}
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* Contact CTA */}
         <section id="contact" className="py-24 px-6 lg:px-20 text-center">
